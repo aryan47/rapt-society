@@ -14,8 +14,8 @@ public class ContactUs {
 	@Autowired
 	private MailConfiguration mail;
 	@GetMapping("/contactUs")
-	public ResponseEntity<?> contactUs(CommentDetail comment) {
-		
+	public ResponseEntity<Void> contactUs(CommentDetail comment) {
+		System.out.println("rietsh");
 		mail.sendMail(comment);
 		 return new ResponseEntity<Void>(HttpStatus.OK);
 	}

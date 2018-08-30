@@ -6,7 +6,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.project.jpa.riteshProject.entity.Student;
 import com.project.jpa.riteshProject.entity.Subject;
-@RepositoryRestResource(path = "students")
+@RepositoryRestResource(path = "students", collectionResourceRel="students")
 public interface StudentJpaRepository extends JpaRepository<Student, Long> {
 
 	List<Subject> findByNameContaining(String name);

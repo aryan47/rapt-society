@@ -1,11 +1,8 @@
 package com.project.jpa.riteshProject.entity;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,16 +12,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Location {
+public class Role {
 	@Id
 	@GeneratedValue
-	private Long id;
-	private String name;
-	private String city;
-	@ManyToMany(mappedBy="locations")
+	private int roleId;
+	private String role;
 
-	private Set<Instructor> instructors;
-	
-	
-	
 }
