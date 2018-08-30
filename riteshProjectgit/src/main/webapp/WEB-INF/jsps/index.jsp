@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,6 +86,7 @@
 							<p>Study with us</p>
 							<form action="/bookSchedule" method="get">
 								<div class="selectMenu">
+							
 									<div class="selectLocation">
 										<select name="location">
 											<option value="#" selected>--Select Location--</option>
