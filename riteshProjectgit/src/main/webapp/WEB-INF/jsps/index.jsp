@@ -1,4 +1,6 @@
-
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,10 +66,23 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#about" class="page-scroll">About</a></li>
 					<li><a href="#services" class="page-scroll">Services</a></li>
-					
+
 					<li><a href="#team" class="page-scroll">Team</a></li>
 					<li><a href="#contact" class="page-scroll">Contact</a></li>
-					<li><a href="/login" class="page-scroll">Login/SignUp</a></li>
+
+					<security:authorize access="isAuthenticated()">
+						<li><a href="#">
+						 Welcome:<security:authentication property="principal.username" />
+						</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</security:authorize>
+					<security:authorize access="isAnonymous()">
+						<li><a href="/login" class="page-scroll">Login/SignUp</a></li>
+					
+					</security:authorize>
+
+
+					
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -86,7 +101,7 @@
 							<p>Study with us</p>
 							<form action="/bookSchedule" method="get">
 								<div class="selectMenu">
-							
+
 									<div class="selectLocation">
 										<select name="location">
 											<option value="#" selected>--Select Location--</option>
@@ -192,7 +207,7 @@
 			</div>
 		</div>
 	</div>
-<!-- Team Section -->
+	<!-- Team Section -->
 	<div id="team" class="text-center">
 		<div class="overlay">
 			<div class="container">
@@ -252,7 +267,8 @@
 			<div class="section-title text-center">
 				<h2>Contact Us</h2>
 				<hr>
-				<p>You can reach us on the specific address or you can leave us a message, we will come in touch soon .</p>
+				<p>You can reach us on the specific address or you can leave us
+					a message, we will come in touch soon .</p>
 			</div>
 			<div class="col-md-4">
 				<h3>Contact Info</h3>
@@ -277,7 +293,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="form-group">
-								<input type="text" id="name"class="form-control"
+								<input type="text" id="name" class="form-control"
 									placeholder="Name" required="required">
 								<p class="help-block text-danger"></p>
 							</div>
@@ -298,7 +314,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<textarea name="message" id="message"class="form-control"
+						<textarea name="message" id="message" class="form-control"
 							rows="4" placeholder="Message" required></textarea>
 						<p class="help-block text-danger"></p>
 					</div>

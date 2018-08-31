@@ -3,6 +3,7 @@ package com.project.jpa.riteshProject.entity;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -28,8 +29,11 @@ public class Student {
 	private Long id;
 	@NotNull
 	private String name;
+	
 	@Email
+	@Column(unique=true,nullable=false)
 	private String email;
+	@NotNull
 	private String password;
 
 	@ManyToMany()	

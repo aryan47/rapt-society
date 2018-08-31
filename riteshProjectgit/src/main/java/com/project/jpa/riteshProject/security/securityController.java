@@ -7,7 +7,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.AntPathMatcher;
 
 import com.project.jpa.riteshProject.services.CustomUserDetailsService;
 
@@ -24,7 +26,8 @@ public class securityController extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		.antMatchers("/bookSchedule/**").hasAnyRole("USER","ADMIN").and()
-		.formLogin().loginPage("/login").and()
+		.formLogin().loginPage("/login").defaultSuccessUrl("/").and()
+		.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").permitAll().and()
 		.csrf().disable();
 		http.headers().frameOptions().sameOrigin();
 

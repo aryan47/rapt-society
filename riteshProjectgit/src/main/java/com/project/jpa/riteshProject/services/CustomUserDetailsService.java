@@ -16,8 +16,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		//configure userName field in student entity because findByName may return list of students
-		Student user=studentRepository.findByName(username);
-		System.out.println("found user-------"+user.getName());
+		Student user=studentRepository.findByEmail(username);
+		System.out.println("found user-------"+user.getEmail());
 		CustomUserDetails userDetail;
 		if(user!= null) {
 			userDetail = new CustomUserDetails();
