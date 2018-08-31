@@ -72,7 +72,7 @@
 
 					<security:authorize access="isAuthenticated()">
 						<li><a href="#">
-						 Welcome:<security:authentication property="principal.username" />
+						 Welcome:<c:out value="${sessionScope.userName}"></c:out>
 						</a></li>
 						<li><a href="/logout">Logout</a></li>
 					</security:authorize>

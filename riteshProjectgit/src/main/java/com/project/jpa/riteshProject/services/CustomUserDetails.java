@@ -37,9 +37,9 @@ public class CustomUserDetails implements UserDetails {
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return user.getName();
+		return user.getEmail();
 	}
-
+	
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub

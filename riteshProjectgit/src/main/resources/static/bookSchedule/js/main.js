@@ -43,9 +43,9 @@ $(function() {
 		$(details).each(function(index,value) {
 			suggName.push(details[index].name);
 		});
-		$('#name').autocomplete({
-			source: suggName
-		});
+//		$('#name').autocomplete({
+//			source: suggName
+//		});
 		fillListSubjects(suggName);
 	});
 	

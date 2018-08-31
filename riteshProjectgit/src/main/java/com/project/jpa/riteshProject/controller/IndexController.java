@@ -1,27 +1,37 @@
 package com.project.jpa.riteshProject.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.project.jpa.riteshProject.Configuration.BasicConfiguration;
+import com.project.jpa.riteshProject.JpaRepository.StudentJpaRepository;
+import com.project.jpa.riteshProject.entity.Student;
 
 @Controller
+@SessionAttributes({"userName","userEmail"})
 public class IndexController {
 	@Autowired
-	BasicConfiguration basic;
+	private BasicConfiguration basic;
+	
+	@Autowired
+	private StudentJpaRepository studentRepository;
 	
 	@GetMapping("/")
-	public String index() {
+	public String index(ModelMap model) {
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if(principal instanceof UserDetails) {
+			String email=((UserDetails) principal).getUsername();
+			model.addAttribute("userEmail",email);
+			
+			Student student = studentRepository.findByEmail(email);
+			model.addAttribute("userName",student.getName());
+			
+		}
 		return "index";
 	}
 	@GetMapping("/login")

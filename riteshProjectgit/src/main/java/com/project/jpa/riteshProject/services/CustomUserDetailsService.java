@@ -12,12 +12,12 @@ import com.project.jpa.riteshProject.entity.Student;
 public class CustomUserDetailsService implements UserDetailsService {
 	@Autowired
 	private StudentJpaRepository studentRepository;
-
+	private String email;
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		//configure userName field in student entity because findByName may return list of students
 		Student user=studentRepository.findByEmail(username);
-		System.out.println("found user-------"+user.getEmail());
+		email=user.getEmail();
 		CustomUserDetails userDetail;
 		if(user!= null) {
 			userDetail = new CustomUserDetails();
@@ -29,5 +29,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 		return userDetail;
 		
 	}
+	public String getEmail() {
+		// TODO Auto-generated method stub
+		return email;
+	}
+
 
 }

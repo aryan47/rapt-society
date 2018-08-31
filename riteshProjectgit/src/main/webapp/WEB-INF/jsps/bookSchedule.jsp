@@ -15,7 +15,6 @@
 
 <title>jQuery Multi-Step Form Example</title>
 <style>
-
 </style>
 </head>
 <body>
@@ -26,7 +25,8 @@
 		Example</h1>
 	<!-- multistep form -->
 	<form id="msform" action="/formData" method="get">
-		<input type="hidden" id="location" name="location" value="${param.location}" />
+		<input type="hidden" id="location" name="location"
+			value="${param.location}" />
 		<!-- progressbar -->
 		<ul id="progressbar">
 			<li class="active">Account Setup</li>
@@ -36,11 +36,12 @@
 		<!-- fieldsets -->
 		<fieldset>
 			<h2 class="fs-title" id="found">Your personal detail</h2>
-			<h3 class="fs-subtitle">Account Details</h3>
 
+			<span class="fs-subtitle">Selected Class</span>
 			<div class="selectClass">
+
 				<select name="std" id="stdValue">
-					<option value="#" selected>--Select Class</option>
+					<option value="#" selected>--Selected Class--</option>
 					<option value="500">Class-1</option>
 					<option value="501">Class-2</option>
 					<option value="502">Class-3</option>
@@ -64,13 +65,15 @@
 					<option value="200">Chemistry</option>
 				</select>
 			</div>
-			 -->
-			
+			 
+
 			<div id="displaySubjects">
 				<input type="text" name="#" id="name"
-					style="text-transform: initial" placeholder="Search Subjects.." />
-				<div id="displaySubjectsList"></div>
+					style="text-transform: initial" placeholder="Search Subjects...." />
+				
 			</div>
+			-->
+			<span class="fs-subtitle">Selected Subject</span>
 			<ul id="listSubjects">
 				<!-- items generated dynamically -->
 
@@ -92,7 +95,7 @@
 		<fieldset>
 			<h2 class="fs-title">Schedule Details</h2>
 			<h3 class="fs-subtitle">We will Schedulue free Demo</h3>
-			
+
 			<div id="calendar" class="form">
 				<input type="text" name="date" id="datePick" />
 			</div>
