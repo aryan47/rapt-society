@@ -6,26 +6,33 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.project.jpa.riteshProject.entity.Student;
 
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 @Setter
+
 public class CustomUserDetails implements UserDetails {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private Student user;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		System.out.println(user.getRoles().stream().map(role -> new SimpleGrantedAuthority("ROLE_"+role.getRole())).collect(Collectors.toList())+"---------");
-		return user.getRoles().stream().map(role -> new SimpleGrantedAuthority("ROLE_"+role.getRole())).collect(Collectors.toList());
-		
+		System.out.println(user.getRoles().stream().map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRole()))
+				.collect(Collectors.toList()) + "---------");
+		return user.getRoles().stream().map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRole()))
+				.collect(Collectors.toList());
+
 	}
 
 	@Override
@@ -37,9 +44,10 @@ public class CustomUserDetails implements UserDetails {
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
+
 		return user.getEmail();
 	}
-	
+
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub

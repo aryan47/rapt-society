@@ -8,7 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.project.jpa.riteshProject.Configuration.MailConfiguration;
+import com.project.jpa.riteshProject.services.MailConfiguration;
 
 @SpringBootApplication
 public class RiteshProjectApplication implements CommandLineRunner {

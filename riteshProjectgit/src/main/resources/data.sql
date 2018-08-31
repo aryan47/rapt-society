@@ -14,7 +14,7 @@ insert into Student(id,name, email, password) values(301,'moni','moni@gmail.com'
 insert into Student(id,name, email, password) values(302,'chingu','chingu@gmail.com','password');
 insert into Student(id,name, email, password) values(303,'chinti','chinti@gmail.com','password');
 insert into Student(id,name, email, password) values(304,'ravi','ravi@gmail.com','$2a$10$o1hzjOiIuGHH3GdHeW2O9OxWBoxagCI1PJJIZyAzCQdyTkgWo3eG6');
-insert into Student(id,name, email, password) values(1,'aryan','aryan47@gmail.com','$2a$10$T1TS.oFTT756N8tg/0q64um2ygkFvBtO5WHHU9P2yKVMU8lvHHQd.');
+insert into Student(id,name, email, password) values(1,'aryan','aryan.hitesh47@gmail.com','$2a$10$T1TS.oFTT756N8tg/0q64um2ygkFvBtO5WHHU9P2yKVMU8lvHHQd.');
 
 insert into Location(id, name,city) values(400,'edalhatu','ranchi');
 insert into Location(id, name,city) values(401,'bariatu','ranchi');

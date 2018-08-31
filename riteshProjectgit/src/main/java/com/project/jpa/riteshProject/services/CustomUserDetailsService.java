@@ -8,31 +8,36 @@ import org.springframework.stereotype.Service;
 
 import com.project.jpa.riteshProject.JpaRepository.StudentJpaRepository;
 import com.project.jpa.riteshProject.entity.Student;
+
 @Service
+
 public class CustomUserDetailsService implements UserDetailsService {
 	@Autowired
 	private StudentJpaRepository studentRepository;
-	private String email;
+private String name;
+private String email;
+	@SuppressWarnings("unused")
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		//configure userName field in student entity because findByName may return list of students
-		Student user=studentRepository.findByEmail(username);
-		email=user.getEmail();
+		// configure userName field in student entity because findByName may return list
+		// of students
+		Student user = studentRepository.findByEmail(username);
+		name = user.getName();
+		email = user.getEmail();
 		CustomUserDetails userDetail;
-		if(user!= null) {
+		if (user != null) {
 			userDetail = new CustomUserDetails();
 			userDetail.setUser(user);
-		}
-		else {
+		} else {
 			throw new UsernameNotFoundException("user name not found");
 		}
 		return userDetail;
-		
+
+	}
+	public String getUserName() {
+		return name;
 	}
 	public String getEmail() {
-		// TODO Auto-generated method stub
 		return email;
 	}
-
-
 }

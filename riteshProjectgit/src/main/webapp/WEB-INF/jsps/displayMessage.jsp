@@ -15,6 +15,7 @@
 location:<b><c:out value="${location}"></c:out></b>
 </p>
 <p>your selected subjects are<b>${sub}</b></p>
+<p>Check your mail for more details.</p>
 <a href="/">Go to homepage.</a>
 </center>
 </body>
