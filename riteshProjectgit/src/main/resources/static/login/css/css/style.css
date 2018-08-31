@@ -124,7 +124,7 @@ h1 {
     background:#ffffff;
 	padding: 40px 50px;
 	width:35%;
-	margin:0 auto;
+	margin:0px auto;
 }
 .tab-group {
 	list-style: none;
@@ -547,6 +547,11 @@ p.copyright a:hover {
 	p.copyright {
 		padding: 10px 10px;
 	} 
+	
+	.customAlert{
+	postion:absolute;
+	}
 }
+
 
 /*-- //Responsive end here--*/

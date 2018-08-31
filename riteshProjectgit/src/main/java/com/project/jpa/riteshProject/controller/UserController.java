@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.jpa.riteshProject.JpaRepository.StudentJpaRepository;
 import com.project.jpa.riteshProject.entity.Role;
 import com.project.jpa.riteshProject.entity.Student;
 
 @Controller
-public class RoleController {
+public class UserController {
 	@Autowired
 	private StudentJpaRepository studentRepository;
 	@Autowired
@@ -27,6 +28,7 @@ public class RoleController {
 		String encodePwd = passwordEncoder.encode(password);
 		student.setPassword(encodePwd);
 		studentRepository.save(student);
-		return "redirect:/login?status=created";
+		
+		return "redirect:/login?userAdded=true";
 	}
 }
