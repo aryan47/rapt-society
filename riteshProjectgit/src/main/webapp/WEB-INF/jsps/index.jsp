@@ -76,12 +76,16 @@
 							<span style="font-size:10px"> Hello,&nbsp;
 								<c:out value="${sessionScope.userName}"></c:out>
 							</span><br>
-							<span >Profile<span></span><span class="caret"></span>
+							<span>Profile<span></span><span class="caret"></span>
 						</a></li>
 						<li><a href="/logout">Logout</a></li>
 					</security:authorize>
 					<security:authorize access="isAnonymous()">
-						<li><a href="/login" class="page-scroll">Login/SignUp</a></li>
+						<li><a href="/login" class="page-scroll" style="margin-top:0;padding-top:0;line-height:17px;">	
+							<span style="font-size:10px"> Hello,&nbsp;
+								
+							</span><br>
+							<span>Sign in<span></span></span></a></li>
 
 					</security:authorize>
 

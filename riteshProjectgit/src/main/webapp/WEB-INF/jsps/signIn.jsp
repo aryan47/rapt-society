@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>stylish Sign in and Sign up Form A Flat Responsive widget
-	Template :: w3layouts</title>
+<title>RaptSociety Sign in</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -73,13 +72,13 @@
 
 					<p class="header">Email Id</p>
 					<input type="text" name="username" placeholder="User Name"
-						onfocus="this.value = '';"
+						
 						onblur="if (this.value == '') {this.value = 'User Name';}"
 						required="required">
 
 					<p class="header">Password</p>
 					<input type="password" name="password" placeholder="Password"
-						onfocus="this.value = '';"
+						
 						onblur="if (this.value == '') {this.value = 'Password';}"
 						required="required"> <input type="checkbox" id="brand"
 						value=""> <label for="brand"><span></span>
@@ -91,25 +90,25 @@
 
 					<p class="header">User Name</p>
 					<input type="text" name="name" placeholder="Your Full Name"
-						onfocus="this.value = '';"
+						
 						onblur="if (this.value == '') {this.value = 'Your Full Name';}"
 						required="required">
 
 					<p class="header">Email Address</p>
 					<input type="email" name="email" placeholder="Email"
-						onfocus="this.value = '';"
+						
 						onblur="if (this.value == '') {this.value = 'Email';}"
 						required="required">
 
 					<p class="header">Password</p>
 					<input type="password" name="password" placeholder="Password"
-						onfocus="this.value = '';"
+						
 						onblur="if (this.value == '') {this.value = 'Password';}"
 						required="required">
 
 					<p class="header">Confirm Password</p>
 					<input type="password" placeholder="Confirm Password"
-						onfocus="this.value = '';"
+						
 						onblur="if (this.value == '') {this.value = 'Confirm Password';}"
 						required="required">
 					<fieldset>
@@ -133,7 +132,7 @@
 	<script src="login/js/js/jquery.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="login/js/js/index.js"></script>
+	<script src="/login/js/js/index.js"></script>
 	<!-- /js files -->
 	<script>
 		
