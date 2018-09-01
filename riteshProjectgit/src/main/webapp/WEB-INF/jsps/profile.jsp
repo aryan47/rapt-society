@@ -20,7 +20,7 @@
 <style>
 body {
 	background: #f4f4f4;
-	box-sizing: content-box;
+
 }
 
 .displayDiv {
@@ -54,7 +54,7 @@ body {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top">RAPT</a>
+				<a class="navbar-brand page-scroll" href="/">RAPT</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -81,11 +81,11 @@ body {
 				<h1>User name</h1>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" style="box-sizing: border-box;">
 			<div class="col-sm-3 displayImg">
 				<!--left col-->
 
-				<div class="text-center ">
+				<div class="text-center " style="box-sizing: border-box;padding:15px">
 					<img src="profile/profileImage/01.jpg"
 						class="avatar img-circle img-thumbnail bg-success" alt="avatar">
 					<h6>Upload a different photo...</h6>
@@ -109,8 +109,8 @@ body {
 						class="badge badge-success">125</span></li>
 					<li class="list-group-item "><strong>Notification</strong><span
 						class="badge badge-success">125</span></li>
-					<li class="list-group-item "><strong>Setting</strong><i
-						class="fa fa-cogs fa-2x pull-right"></i></li>
+					<li class="list-group-item "><i
+						class="fa fa-cogs fa-1x"></i>&nbsp;<strong>Setting</strong></li>
 				</ul>
 				<div class="panel panel-default">
 					<div class="panel-heading">Social Media</div>
