@@ -19,7 +19,7 @@ public class BookScheduleController {
 	public String getForm(BookConfirmDetails bookData, ModelMap model) {
 		String email = (String)model.get("userEmail");
 		String name= (String)model.get("userName");
-		System.out.println("-----ritu "+email+" and name "+name);
+		
 		mail.sendBookConfirmationMail(email,name,bookData);
 		model.addAttribute("userName",email);
 		model.addAttribute("location", bookData.location);

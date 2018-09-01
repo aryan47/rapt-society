@@ -9,8 +9,12 @@
 <meta name="keywords"
 	content="stylish Sign in and Sign up Form A Flat Responsive widget, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
+	
 		
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 
 </script>
@@ -42,7 +46,6 @@
 #customAlertBox {
 	position: absolute;
 	width: 100%;
-	
 }
 </style>
 </head>
@@ -108,8 +111,17 @@
 					<input type="password" placeholder="Confirm Password"
 						onfocus="this.value = '';"
 						onblur="if (this.value == '') {this.value = 'Confirm Password';}"
-						required="required"> <input type="submit" class="register"
-						value="Sign up">
+						required="required">
+					<fieldset>
+						<label for="user_agree_to_terms"> <input type="checkbox"
+							id="user_agree_to_terms" name="user[agree_to_terms]">
+							Creating an account means you are okay with our <a target="_blank"
+							href="/terms">Terms of Service</a>, <a target="_blank"
+							href="/privacy">Privacy Policy</a>, and our default <a
+							target="_blank" href="/notifications">Notification Settings</a>.
+						</label>
+					</fieldset>
+					<input type="submit" class="register" value="Sign up">
 				</form>
 			</div>
 		</div>

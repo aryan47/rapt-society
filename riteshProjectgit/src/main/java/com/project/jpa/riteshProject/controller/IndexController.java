@@ -1,6 +1,7 @@
 package com.project.jpa.riteshProject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -62,6 +63,11 @@ public class IndexController {
 	public String bookSchedule(ModelMap map) {
 		map.addAttribute("url", basic.getUrl());
 		return "bookSchedule";
+	}
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+	@GetMapping("/profile")
+	public String profile() {
+		return "profile";
 	}
 
 }

@@ -71,18 +71,18 @@
 					<li><a href="#contact" class="page-scroll">Contact</a></li>
 
 					<security:authorize access="isAuthenticated()">
-						<li><a href="#">
-						 Welcome:<c:out value="${sessionScope.userName}"></c:out>
+						<li><a href="#"> Welcome:<c:out
+									value="${sessionScope.userName}"></c:out>
 						</a></li>
 						<li><a href="/logout">Logout</a></li>
 					</security:authorize>
 					<security:authorize access="isAnonymous()">
 						<li><a href="/login" class="page-scroll">Login/SignUp</a></li>
-					
+
 					</security:authorize>
 
 
-					
+
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
