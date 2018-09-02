@@ -49,16 +49,8 @@ public class IndexController {
 		return "signIn";
 	}
 
-	@GetMapping("/search")
-	public String search() {
-		return "search";
-	}
 
-	@GetMapping("/showCourses")
-	public String showCourses() {
-		return "showCourses";
-	}
-
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	@GetMapping("/bookSchedule")
 	public String bookSchedule(ModelMap map) {
 		map.addAttribute("url", basic.getUrl());

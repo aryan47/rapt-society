@@ -21,8 +21,7 @@
 
 	<input type="hidden" name="" id="url" value="${url}" />
 	<input type="hidden" id="std" value="${param.std}" />
-	<h1 style="margin-top: 30px" align="center">jQuery Multi-Step Form
-		Example</h1>
+	
 	<!-- multistep form -->
 	<form id="msform" action="/formData" method="get">
 		<input type="hidden" id="location" name="location"

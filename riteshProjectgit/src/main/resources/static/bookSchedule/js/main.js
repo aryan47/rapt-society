@@ -13,19 +13,20 @@ $(function() {
 	var stdId = $('#std').val();
 	
 	$("#stdValue").val(stdId);
-	var urlLoc = urlHost+"/locations/" + locId;
+	var urlLoc = urlHost+"/locations/" + locId +"/instructors";
 
 	$
 			.getJSON(urlLoc)
 			.done(
 					function(data) {
 						console.log(data);
-						var countInstructor = data.instructor.length;
+						var countInstructor = data._embedded.instructors.length;
 
 						$("#found")
 								.text(
 										countInstructor
 												+ " instructor found in your selected location");
+						console.log("inside book shed instruco found");
 					}).fail(function() {
 			});
 });
