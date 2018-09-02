@@ -20,14 +20,15 @@
 <style>
 body {
 	background: #f4f4f4;
-
 }
 
-.displayDiv {
-	background-color: white;
-	padding: 10px;
-	margin-left: 19px;
-	box-shadow: 1px 1px 6px grey;
+@media only screen and (min-width: 781px) {
+	#displayDiv {
+		background-color: white;
+		padding: 10px;
+		margin-left: 19px;
+		box-shadow: 1px 1px 6px grey;
+	}
 }
 
 .displayImg {
@@ -85,7 +86,8 @@ body {
 			<div class="col-sm-3 displayImg">
 				<!--left col-->
 
-				<div class="text-center " style="box-sizing: border-box;padding:15px">
+				<div class="text-center "
+					style="box-sizing: border-box; padding: 15px">
 					<img src="profile/profileImage/01.jpg"
 						class="avatar img-circle img-thumbnail bg-success" alt="avatar">
 					<h6>Upload a different photo...</h6>
@@ -109,8 +111,7 @@ body {
 						class="badge badge-success">125</span></li>
 					<li class="list-group-item "><strong>Notification</strong><span
 						class="badge badge-success">125</span></li>
-					<li class="list-group-item "><i
-						class="fa fa-cogs fa-1x"></i>&nbsp;<strong>Setting</strong></li>
+					<li class="list-group-item "><i class="fa fa-cogs fa-1x"></i>&nbsp;<strong>Setting</strong></li>
 				</ul>
 				<div class="panel panel-default">
 					<div class="panel-heading">Social Media</div>
@@ -124,7 +125,7 @@ body {
 
 			</div>
 			<!--/col-3-->
-			<div class="col-sm-8 displayDiv">
+			<div class="col-sm-8" id="displayDiv">
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="#profile">Profile
 							Details:</a></li>
@@ -137,6 +138,10 @@ body {
 				<div class="tab-content">
 					<div class="tab-pane active" id="profile">
 						<hr>
+						<div class="edit"
+							style="position: absolute; right: 30px; top: 76px; z-index:1;">
+							<a><i class="fa fa-edit fa-2x pull-right"></i></a>
+						</div>
 						<form class="form" action="##" method="post" id="registrationForm">
 							<div class="form-group">
 
@@ -144,7 +149,7 @@ body {
 									<label for="first_name"><h4>First name</h4></label> <input
 										type="text" class="form-control" name="first_name"
 										id="first_name" placeholder="first name"
-										title="enter your first name if any.">
+										title="enter your first name if any." readonly>
 								</div>
 							</div>
 							<div class="form-group">
@@ -231,6 +236,10 @@ body {
 						<h2></h2>
 
 						<hr>
+						<div class="edit"
+							style="position: absolute; right: 30px; top: 76px; z-index:1;">
+							<a><i class="fa fa-edit fa-2x pull-right"></i></a>
+						</div>
 						<form class="form" action="##" method="post" id="registrationForm">
 							<div class="form-group">
 
@@ -310,6 +319,21 @@ body {
 		<!--/col-9-->
 	</div>
 	<!--/row-->
+	<script>
+		$(function() {
+			$("input[type=text],input[type=email],input[type=password]").attr(
+					"readonly", true);
 
+			$(".edit")
+					.on(
+							"click",
+							function() {
+								$(
+										"input[type=text],input[type=email],input[type=password]")
+										.removeAttr("readonly");
+							});
+
+		});
+	</script>
 </body>
 </html>
