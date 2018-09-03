@@ -23,16 +23,16 @@ public class StudentRepository {
 	EntityManager em;
 
 	public List<Subject> searchAllSubjects(String name) {
-		return JpaRepository.findByNameContaining(name);		
+		return JpaRepository.findByFirstNameContaining(name);		
 		
 	}
 	public void searchAllSubjectsFilterClass(String name, String std) {
-		List<Subject> subjects = JpaRepository.findByNameContaining(name);		
+		List<Subject> subjects = JpaRepository.findByFirstNameContaining(name);		
 		logger.info("============subjects like   {}", subjects);
 		logger.info("============subject like size  {}", subjects.size());
 	}
 	public void searchAllSubjectsFilterClassLocation(String name, String std) {
-		List<Subject> subjects = JpaRepository.findByNameContaining(name);		
+		List<Subject> subjects = JpaRepository.findByFirstNameContaining(name);		
 		logger.info("============subjects like   {}", subjects);
 		logger.info("============subject like size  {}", subjects.size());
 	}

@@ -17,49 +17,56 @@ import com.project.jpa.riteshProject.entity.Student;
 @Controller
 @SessionAttributes({ "userName", "userEmail" })
 public class IndexController {
+	
 	@Autowired
 	private BasicConfiguration basic;
-
 	@Autowired
 	private StudentJpaRepository studentRepository;
+
+	public IndexController() {
+
+	}
 
 	@GetMapping("/")
 	public String index(ModelMap model) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if (principal instanceof UserDetails) {
+			
 			String email = ((UserDetails) principal).getUsername();
-			model.addAttribute("userEmail", email);
-
 			Student student = studentRepository.findByEmail(email);
-			model.addAttribute("userName", student.getName());
-			System.out.println("---ravi" + student.getName());
+			model.addAttribute("userEmail", email);
+			model.addAttribute("userName", student.getFirstName());
+			System.out.println("setting session " + model.get("userEmail") + " " + model.get("userName"));
+
 		}
-		
 		return "index";
 	}
+
 	@PostMapping("/")
 	public String post() {
 		return "redirect:/";
 	}
-	
 
 	@GetMapping("/login")
-	public String signIn(ModelMap model) {
-
+	public String signIn() {
+		
 		return "signIn";
 	}
-
 
 	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	@GetMapping("/bookSchedule")
 	public String bookSchedule(ModelMap map) {
+		
 		map.addAttribute("url", basic.getUrl());
 		return "bookSchedule";
 	}
+
 	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	@GetMapping("/profile")
 	public String profile() {
+		
 		return "profile";
 	}
+
 
 }

@@ -9,9 +9,9 @@ import com.project.jpa.riteshProject.entity.Subject;
 @RepositoryRestResource(path = "students", collectionResourceRel="students")
 public interface StudentJpaRepository extends JpaRepository<Student, Long> {
 
-	List<Subject> findByNameContaining(String name);
+	List<Subject> findByFirstNameContaining(String firstName);
 
-	Student findByName(String username);
+	Student findByFirstName(String firstName);
 
 	Student findByEmail(String username);
 	

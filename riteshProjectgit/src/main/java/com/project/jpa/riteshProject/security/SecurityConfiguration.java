@@ -28,7 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/bookSchedule/**").hasAnyRole("USER", "ADMIN").and().formLogin()
-				.loginPage("/login").defaultSuccessUrl("/").and().logout()
+				.loginPage("/login").successForwardUrl("/").and().logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").permitAll().and()
 				.csrf().disable();
 		http.headers().frameOptions().sameOrigin();

@@ -10,8 +10,10 @@
 <script type="application/x-javascript">
 	
 	
+	
 		
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -19,8 +21,7 @@
 </script>
 
 <!--online_fonts-->
-<link
-	href="//fonts.googleapis.com/css?family=Sansita:400,400i,700,700i,800,800i,900,900i&amp;subset=latin-ext"
+<link href="//fonts.googleapis.com/css?family=Sansita:400,400i,700,700i,800,800i,900,900i&amp;subset=latin-ext"
 	rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Poiret+One"
 	rel="stylesheet">
@@ -72,13 +73,11 @@
 
 					<p class="header">Email Id</p>
 					<input type="text" name="username" placeholder="User Name"
-						
 						onblur="if (this.value == '') {this.value = 'User Name';}"
 						required="required">
 
 					<p class="header">Password</p>
 					<input type="password" name="password" placeholder="Password"
-						
 						onblur="if (this.value == '') {this.value = 'Password';}"
 						required="required"> <input type="checkbox" id="brand"
 						value=""> <label for="brand"><span></span>
@@ -88,36 +87,38 @@
 			<div id="signup-agile">
 				<form action="/createUser" method="post">
 
-					<p class="header">User Name</p>
-					<input type="text" name="name" placeholder="Your Full Name"
-						
-						onblur="if (this.value == '') {this.value = 'Your Full Name';}"
+					<p class="header">First Name</p>
+					<input type="text" name="firstName" placeholder="Your First Name"
+						onblur="if (this.value == '') {this.value = 'Your First Name';}"
+						required="required">
+						<p class="header">Last Name</p>
+					<input type="text" name="lastName" placeholder="Your Last Name"
+						onblur="if (this.value == '') {this.value = 'Your Last Name';}"
 						required="required">
 
 					<p class="header">Email Address</p>
 					<input type="email" name="email" placeholder="Email"
-						
 						onblur="if (this.value == '') {this.value = 'Email';}"
 						required="required">
+						
 
 					<p class="header">Password</p>
 					<input type="password" name="password" placeholder="Password"
-						
 						onblur="if (this.value == '') {this.value = 'Password';}"
 						required="required">
 
 					<p class="header">Confirm Password</p>
 					<input type="password" placeholder="Confirm Password"
-						
 						onblur="if (this.value == '') {this.value = 'Confirm Password';}"
 						required="required">
 					<fieldset>
 						<label for="user_agree_to_terms"> <input type="checkbox"
 							id="user_agree_to_terms" name="user[agree_to_terms]">
-							Creating an account means you are okay with our <a target="_blank"
-							href="/terms">Terms of Service</a>, <a target="_blank"
-							href="/privacy">Privacy Policy</a>, and our default <a
-							target="_blank" href="/notifications">Notification Settings</a>.
+							Creating an account means you are okay with our <a
+							target="_blank" href="/terms">Terms of Service</a>, <a
+							target="_blank" href="/privacy">Privacy Policy</a>, and our
+							default <a target="_blank" href="/notifications">Notification
+								Settings</a>.
 						</label>
 					</fieldset>
 					<input type="submit" class="register" value="Sign up">

@@ -1,6 +1,6 @@
 insert into Instructor(id, name, email, password) values(100,'ritesh','rit@gmail.com','password');
-insert into Instructor(id,name, email, password) values(101,'subu','subu@gmail.com','password');
-insert into Instructor(id,name, email, password) values(102,'ravi','ravi@gmail.com','password');
+insert into Instructor(id, name, email, password) values(101,'subu','subu@gmail.com','password');
+insert into Instructor(id, name, email, password) values(102,'ravi','ravi@gmail.com','password');
 insert into Instructor(id,name, email, password) values(103,'rani','rani@gmail.com','password');
 insert into Instructor(id,name, email, password) values(104,'roshan','roshan@gmail.com','password');
 
@@ -9,12 +9,12 @@ insert into Subject(id, name) values(201,'PHYSICS');
 insert into Subject(id, name) values(202,'CHEMISTRY');
 
 
-insert into Student(id,name, email, password) values(300,'soni','soni@gmail.com','password');
-insert into Student(id,name, email, password) values(301,'moni','moni@gmail.com','password');
-insert into Student(id,name, email, password) values(302,'chingu','chingu@gmail.com','password');
-insert into Student(id,name, email, password) values(303,'chinti','chinti@gmail.com','password');
-insert into Student(id,name, email, password) values(304,'ravi','ravi@gmail.com','$2a$10$o1hzjOiIuGHH3GdHeW2O9OxWBoxagCI1PJJIZyAzCQdyTkgWo3eG6');
-insert into Student(id,name, email, password) values(305,'aryan','aryan.hitesh47@gmail.com','$2a$10$T1TS.oFTT756N8tg/0q64um2ygkFvBtO5WHHU9P2yKVMU8lvHHQd.');
+insert into Student(id,FIRST_NAME,LAST_NAME, email, password) values(300,'soni','kumari','soni@gmail.com','password');
+insert into Student(id,FIRST_NAME,LAST_NAME, email, password) values(301,'moni','kumari','moni@gmail.com','password');
+insert into Student(id,FIRST_NAME,LAST_NAME, email, password) values(302,'chingu','kumar','chingu@gmail.com','password');
+insert into Student(id,FIRST_NAME,LAST_NAME, email, password) values(303,'chinti','ritesh','chinti@gmail.com','password');
+insert into Student(id,FIRST_NAME,LAST_NAME,email, password) values(304,'ravi','kant','ravi@gmail.com','$2a$10$o1hzjOiIuGHH3GdHeW2O9OxWBoxagCI1PJJIZyAzCQdyTkgWo3eG6');
+insert into Student(id,FIRST_NAME,LAST_NAME, email, password) values(305,'aryan','hitesh','aryan.hitesh47@gmail.com','$2a$10$T1TS.oFTT756N8tg/0q64um2ygkFvBtO5WHHU9P2yKVMU8lvHHQd.');
 
 insert into Location(id, name,city) values(400,'edalhatu','ranchi');
 insert into Location(id, name,city) values(401,'bariatu','ranchi');

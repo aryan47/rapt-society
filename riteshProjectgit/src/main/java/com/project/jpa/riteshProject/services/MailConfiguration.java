@@ -35,10 +35,8 @@ public class MailConfiguration {
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setTo(email);
 		mail.setSubject("Demo Confirmation");
-		logger.info("Sending....");
-		mail.setText("Hello, " + name + "\nYour Demo is scheduled on " + bookData.getDate() + " for the subject "
-				+ bookData.getSub() + " " + bookData.getStd() + " to your location.\n" + bookData.getAddress() + "\n"
-				+ bookData.getLandmark());
+		logger.info("Sending....email "+email);
+		mail.setText("Hello, ");
 		javaMailSender.send(mail);
 		logger.info("done.");
 	}

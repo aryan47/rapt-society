@@ -72,13 +72,15 @@ body {
     font-size: 15px;
     text-transform: uppercase;
     color: #2C3E50;
-    margin-bottom: 10px;
+    
 }
 .fs-subtitle {
     font-weight: normal;
     font-size: 13px;
     color: #666;
-    margin-bottom: 20px;
+    margin-bottom: 7px;
+    padding: 4px;
+    background:#f4f4f4;
 }
 /*progressbar*/
 #progressbar {
@@ -221,13 +223,13 @@ select::-ms-expand{
 select: focus{
 	border:1px solid blue;
 }
-.selectClass, .selectSubject{    
+.selectClass, .selectSubject, #selectState, #selectCity{    
     display:inline-block;
     width: 100%;
     position: relative;
 }
 
-.selectClass::after,.selectSubject::after , .selectMonth::after, .selectDay::after{
+.selectClass::after,.selectSubject::after , .selectMonth::after, .selectDay::after, #selectState::after, #selectCity::after{
     
     content: "\f13a";
     font-family: "FontAwesome";
