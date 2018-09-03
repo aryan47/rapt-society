@@ -20,7 +20,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	CustomUserDetailsService userDetailsService;
-	
+
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		auth.userDetailsService(userDetailsService).passwordEncoder(encodePwd());
@@ -28,9 +28,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/bookSchedule/**").hasAnyRole("USER", "ADMIN").and().formLogin()
-				.loginPage("/login").successForwardUrl("/").and().logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").permitAll().and()
-				.csrf().disable();
+				.loginPage("/login").successForwardUrl("/").failureUrl("/login?error=true").and().logout()
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
+				.deleteCookies("remember-me").permitAll().and().rememberMe().and().csrf()
+				.disable();
 		http.headers().frameOptions().sameOrigin();
 
 	}

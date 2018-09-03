@@ -58,6 +58,15 @@
 				successfully adder user
 			</div>
 		</c:if>
+		<div id="customAlert">
+		<c:if test="${param.error == true }">
+			<div class="alert alert-danger" id="customAlertBox">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<span class="glyphicon glyphicon-ok-circle">&nbsp;</span>
+				Failed to login, you typed wrong user name or password. Try again.
+			</div>
+		</c:if>
+	</div>
 	</div>
 	<div class="form-w3ls">
 		<div class="form-head-w3l">
@@ -79,8 +88,9 @@
 					<p class="header">Password</p>
 					<input type="password" name="password" placeholder="Password"
 						onblur="if (this.value == '') {this.value = 'Password';}"
-						required="required"> <input type="checkbox" id="brand"
-						value=""> <label for="brand"><span></span>
+						required="required">
+					 <input type="checkbox" id="brand" name="remember-me"> 
+					 	<label for="brand"><span></span>
 						Remember me?</label> <input type="submit" class="sign-in" value="Sign In">
 				</form>
 			</div>

@@ -23,7 +23,7 @@ public class BookScheduleController {
 		System.out.println("-------ritesh"+bookData+""+address);
 		mail.sendBookConfirmationMail(email,name,bookData);
 		model.addAttribute("userName",email);
-		model.addAttribute("location", "");
+		model.addAttribute("location", "bookData");
 		model.addAttribute("date", bookData.date);
 		model.addAttribute("sub",bookData.sub);
 		return "displayMessage";

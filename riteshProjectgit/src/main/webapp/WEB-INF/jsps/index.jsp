@@ -230,21 +230,13 @@
 						<div class="thumbnail">
 							<img src="index/css/img/team/01.jpg" alt="..." class="team-img">
 							<div class="caption">
-								<h3>John Doe</h3>
-								<p>Director</p>
+								<h3>Ritesh</h3>
+								<p>Founder, Developer</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3 col-sm-6 team">
-						<div class="thumbnail">
-							<img src="index/css/img/team/02.jpg" alt="..."
-								class="img-circle team-img">
-							<div class="caption">
-								<h3>Mike Doe</h3>
-								<p>Senior Designer</p>
-							</div>
-						</div>
-					</div>
+					
+					
 					<div class="col-md-3 col-sm-6 team">
 						<div class="thumbnail">
 							<img src="index/css/img/team/03.jpg" alt="..."
