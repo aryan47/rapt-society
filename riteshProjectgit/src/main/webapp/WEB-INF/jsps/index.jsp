@@ -72,7 +72,7 @@
 
 					<security:authorize access="isAuthenticated()">
 						<li>
-						<a href="/profile" style="margin-top:0;padding-top:0;line-height:17px;">
+						<a href="/userProfile" style="margin-top:0;padding-top:0;line-height:17px;">
 							<span style="font-size:10px"> Hello,&nbsp;
 								<c:out value="${sessionScope.userName}"></c:out>
 							</span><br>

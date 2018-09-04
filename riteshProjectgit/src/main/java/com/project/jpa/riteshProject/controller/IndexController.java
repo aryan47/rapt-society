@@ -17,7 +17,7 @@ import com.project.jpa.riteshProject.entity.Student;
 @Controller
 @SessionAttributes({ "userName", "userEmail" })
 public class IndexController {
-	
+
 	@Autowired
 	private BasicConfiguration basic;
 	@Autowired
@@ -31,7 +31,7 @@ public class IndexController {
 	public String index(ModelMap model) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if (principal instanceof UserDetails) {
-			
+
 			String email = ((UserDetails) principal).getUsername();
 			Student student = studentRepository.findByEmail(email);
 			model.addAttribute("userEmail", email);
@@ -49,24 +49,18 @@ public class IndexController {
 
 	@GetMapping("/login")
 	public String signIn() {
-		
+
 		return "signIn";
 	}
 
 	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	@GetMapping("/bookSchedule")
 	public String bookSchedule(ModelMap map) {
-		
+
 		map.addAttribute("url", basic.getUrl());
 		return "bookSchedule";
 	}
 
-	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-	@GetMapping("/profile")
-	public String profile() {
-		
-		return "profile";
-	}
-
+	
 
 }

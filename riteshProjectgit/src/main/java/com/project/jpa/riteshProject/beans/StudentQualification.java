@@ -3,16 +3,14 @@ package com.project.jpa.riteshProject.beans;
 import javax.persistence.Embeddable;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Embeddable
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentQualification {
  private String boardName;
- private String className;
+ private String stdName;
 }

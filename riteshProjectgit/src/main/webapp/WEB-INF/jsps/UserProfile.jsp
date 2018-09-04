@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +17,7 @@
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="profile/main.js" type="text/javascript"></script>
+<script src="/UserProfile/main.js" type="text/javascript"></script>
 <style>
 body {
 	background: #f4f4f4;
@@ -79,7 +80,7 @@ body {
 	<div class="container bootstrap snippet">
 		<div class="row">
 			<div class="col-sm-10">
-				<h1>User name</h1>
+				<h1>${sessionScope.userName}</h1>
 			</div>
 		</div>
 		<div class="row" style="box-sizing: border-box;">
@@ -88,12 +89,12 @@ body {
 
 				<div class="text-center "
 					style="box-sizing: border-box; padding: 15px">
-					<img src="profile/profileImage/01.jpg"
+					<img src="/UserProfile/profileImage/01.jpg"
 						class="avatar img-circle img-thumbnail bg-success" alt="avatar">
 					<h6>Upload a different photo...</h6>
 					<input type="file" class="text-center center-block file-upload">
 				</div>
-				</hr>
+				<hr>
 				<br>
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -103,7 +104,7 @@ body {
 						<a href="http://bootnipets.com">bootnipets.com</a>
 					</div>
 				</div>
-				<ul class="list-group ">
+				<ul class="list-group " id="listMenu">
 
 					<li class="list-group-item"><strong>Profile</strong><span
 						class="badge badge-success">125</span></li>
@@ -142,23 +143,23 @@ body {
 							style="position: absolute; right: 30px; top: 76px; z-index:1;">
 							<a><i class="fa fa-edit fa-2x pull-right"></i></a>
 						</div>
-						<form class="form" action="##" method="post" id="registrationForm">
+						<form class="form" action="/updateProfile" method="post" id="registrationForm">
 							<div class="form-group">
 
 								<div class="col-xs-6">
-									<label for="first_name"><h4>First name</h4></label> <input
-										type="text" class="form-control" name="first_name"
-										id="first_name" placeholder="first name"
-										title="enter your first name if any." readonly>
+									<label for="firstName"><h4>First name</h4></label> <input
+										type="text" class="form-control" name="firstName"
+										id="first_name" placeholder="Enter your first name"
+										title="Enter your first name" value="${student.firstName}" >
 								</div>
 							</div>
 							<div class="form-group">
 
 								<div class="col-xs-6">
-									<label for="last_name"><h4>Last name</h4></label> <input
-										type="text" class="form-control" name="last_name"
-										id="last_name" placeholder="last name"
-										title="enter your last name if any.">
+									<label for="lastName"><h4>Last name</h4></label> <input
+										type="text" class="form-control" name="lastName"
+										id="last_name" placeholder="Enter your last name"
+										title="Enter your last name" value="${student.lastName}">
 								</div>
 							</div>
 
@@ -166,52 +167,61 @@ body {
 
 								<div class="col-xs-6">
 									<label for="phone"><h4>Phone</h4></label> <input type="text"
-										class="form-control" name="phone" id="phone"
-										placeholder="enter phone"
-										title="enter your phone number if any.">
+										class="form-control" name="phoneNo" id="phone"
+										placeholder="Enter your phone number"
+										title="Enter your phone number" value="${student.phoneNo}">
 								</div>
 							</div>
-
-							<div class="form-group">
-								<div class="col-xs-6">
-									<label for="mobile"><h4>Mobile</h4></label> <input type="text"
-										class="form-control" name="mobile" id="mobile"
-										placeholder="enter mobile number"
-										title="enter your mobile number if any.">
-								</div>
-							</div>
-							<div class="form-group">
+								<div class="form-group">
 
 								<div class="col-xs-6">
 									<label for="email"><h4>Email</h4></label> <input type="email"
 										class="form-control" name="email" id="email"
-										placeholder="you@email.com" title="enter your email.">
+										placeholder="Enter your Email id"
+										title="Enter your Email id" value="${student.email}">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-xs-6">
+									<label for="state"><h4>State</h4></label> <input type="text"
+										class="form-control" name="state" id="state"
+										placeholder="Enter State"
+										title="enter your State" value="${address.state}">
 								</div>
 							</div>
 							<div class="form-group">
 
 								<div class="col-xs-6">
-									<label for="email"><h4>Location</h4></label> <input
-										type="email" class="form-control" id="location"
-										placeholder="somewhere" title="enter a location">
+									<label for="city"><h4>City</h4></label> <input type="text"
+										class="form-control" name="city" id="city"
+										placeholder="Enter your city name" title="enter your City name" value="${address.city}" >
 								</div>
 							</div>
 							<div class="form-group">
 
 								<div class="col-xs-6">
-									<label for="password"><h4>Password</h4></label> <input
-										type="password" class="form-control" name="password"
-										id="password" placeholder="password"
-										title="enter your password.">
+									<label for="address"><h4>Address</h4></label> <input
+										type="text" class="form-control" name="address" id="address"
+										placeholder="Enter your address" title="Enter your address" value="${address.address}">
 								</div>
 							</div>
 							<div class="form-group">
 
 								<div class="col-xs-6">
-									<label for="password2"><h4>Verify</h4></label> <input
-										type="password" class="form-control" name="password2"
-										id="password2" placeholder="password2"
-										title="enter your password2.">
+									<label for="landmark"><h4>Landmark</h4></label> <input
+										type="text" class="form-control" name="landmark"
+										id="landmark" placeholder="enter your Landmark"
+										title="enter your Landmark" value="${address.landmark}">
+								</div>
+							</div>
+							<div class="form-group">
+
+								<div class="col-xs-6">
+									<label for="pin"><h4>Pin Code</h4></label> <input
+										type="text" class="form-control" name="pin"
+										id="pin" placeholder="Enter Pin code"
+										title="enter pin code" value="${address.pin}">
 								</div>
 							</div>
 							<div class="form-group">
@@ -225,7 +235,7 @@ body {
 									</button>
 								</div>
 							</div>
-						</form>
+						
 
 						<hr>
 
@@ -240,58 +250,23 @@ body {
 							style="position: absolute; right: 30px; top: 76px; z-index:1;">
 							<a><i class="fa fa-edit fa-2x pull-right"></i></a>
 						</div>
-						<form class="form" action="##" method="post" id="registrationForm">
+						
+															
+							
 							<div class="form-group">
 
 								<div class="col-xs-6">
-									<label for="first_name"><h4>State:</h4></label> <input
-										type="text" class="form-control" name="first_name"
-										id="first_name" placeholder="first name"
-										title="enter your first name if any.">
+									<label for="boardName"><h4>Board:</h4></label> <input type="text"
+										class="form-control" name="boardName" id="email"
+										placeholder="Board Name" title="enter your Board name" value="${qualification.boardName}">
 								</div>
 							</div>
 							<div class="form-group">
 
 								<div class="col-xs-6">
-									<label for="last_name"><h4>City:</h4></label> <input
-										type="text" class="form-control" name="last_name"
-										id="last_name" placeholder="last name"
-										title="enter your last name if any.">
-								</div>
-							</div>
-
-							<div class="form-group">
-
-								<div class="col-xs-6">
-									<label for="phone"><h4>Address:</h4></label> <input type="text"
-										class="form-control" name="phone" id="phone"
-										placeholder="enter phone"
-										title="enter your phone number if any.">
-								</div>
-							</div>
-
-							<div class="form-group">
-								<div class="col-xs-6">
-									<label for="mobile"><h4>Pin Code:</h4></label> <input
-										type="text" class="form-control" name="mobile" id="mobile"
-										placeholder="enter mobile number"
-										title="enter your mobile number if any.">
-								</div>
-							</div>
-							<div class="form-group">
-
-								<div class="col-xs-6">
-									<label for="email"><h4>Board:</h4></label> <input type="email"
-										class="form-control" name="email" id="email"
-										placeholder="you@email.com" title="enter your email.">
-								</div>
-							</div>
-							<div class="form-group">
-
-								<div class="col-xs-6">
-									<label for="email"><h4>Class:</h4></label> <input type="email"
-										class="form-control" id="location" placeholder="somewhere"
-										title="enter a location">
+									<label for="stdName"><h4>Class:</h4></label> <input type="text"
+										class="form-control" id="stdName" name="stdName" placeholder="Class Name"
+										title="enter your Class" value="${qualification.stdName}">
 								</div>
 							</div>
 
@@ -306,6 +281,7 @@ body {
 									</button>
 								</div>
 							</div>
+						
 						</form>
 
 					</div>
@@ -321,7 +297,7 @@ body {
 	<!--/row-->
 	<script>
 		$(function() {
-			$("input[type=text],input[type=email],input[type=password]").attr(
+			$("input[type=text],input[type=email],input[type=password],input[type=password]").attr(
 					"readonly", true);
 
 			$(".edit")
@@ -329,10 +305,12 @@ body {
 							"click",
 							function() {
 								$(
-										"input[type=text],input[type=email],input[type=password]")
+										"input[type=text],input[type=password],input[type=password]")
 										.removeAttr("readonly");
 							});
-
+		$("#listMenu li").on("hover",function(){
+			$(this).style("background","red");
+		});
 		});
 	</script>
 </body>

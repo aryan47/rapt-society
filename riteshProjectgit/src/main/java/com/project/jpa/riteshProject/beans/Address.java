@@ -15,7 +15,7 @@ public class Address {
 	private String state;
 	private String city;
 	@Column(nullable = true)
-	private int pin;
+	private String pin;
 	private String address;
 	private String landmark;
 
