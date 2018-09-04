@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.project.jpa.riteshProject.JpaRepository.StudentJpaRepository;
-import com.project.jpa.riteshProject.entity.Address;
+import com.project.jpa.riteshProject.beans.Address;
 import com.project.jpa.riteshProject.entity.Role;
 import com.project.jpa.riteshProject.entity.Student;
 

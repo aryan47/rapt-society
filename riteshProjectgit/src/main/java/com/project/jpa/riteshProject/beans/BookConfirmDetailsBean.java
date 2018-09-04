@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookConfirmDetails {
+public class BookConfirmDetailsBean {
 	
 	public String std;
 	public List<String> sub;
@@ -19,6 +19,7 @@ public class BookConfirmDetails {
 	public String landmark;
 	@DateTimeFormat(pattern="dd-mm-yy")
 	public Date date;
+	
 	
 	
 

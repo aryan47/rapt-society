@@ -19,6 +19,9 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.project.jpa.riteshProject.beans.Address;
+import com.project.jpa.riteshProject.beans.StudentQualification;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

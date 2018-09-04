@@ -1,4 +1,4 @@
-package com.project.jpa.riteshProject.entity;
+package com.project.jpa.riteshProject.beans;
 
 import javax.persistence.Embeddable;
 
