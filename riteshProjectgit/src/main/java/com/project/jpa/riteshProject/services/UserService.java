@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 
 import com.project.jpa.riteshProject.JpaRepository.StudentJpaRepository;
 import com.project.jpa.riteshProject.JpaRepository.StudentPasswordResetTokenJpaRepository;
@@ -62,5 +63,22 @@ public class UserService {
 			tokenRepository.delete(userToken);
 		}
 
+	}
+
+	public String changeUserPassword(String password, String newPassword,String email) {
+		Student student = studentRepository.findByEmail(email);
+		
+		BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
+		if(encoder.matches(password, student.getPassword())) {
+			String encodedPassword = encoder.encode(newPassword);
+			student.setPassword(encodedPassword);
+			studentRepository.save(student);
+			System.out.println("--password successfully changed");
+			return "redirect:/userProfile/setting?success=true";
+		}
+		else {
+			System.out.println("--error changing password");
+			return "redirect:/userProfile/setting?error=true";
+		}
 	}
 }
