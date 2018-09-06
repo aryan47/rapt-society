@@ -10,7 +10,8 @@
 
 	</ul>
 
-
+<form class="form" action="/userProfile/updateProfile" method="post"
+				id="registrationForm">
 	<div class="tab-content">
 		<div class="tab-pane active" id="profile">
 			<hr>
@@ -18,8 +19,7 @@
 				style="position: absolute; right: 30px; top: 76px; z-index: 1;">
 				<a><i class="fa fa-edit fa-2x pull-right"></i></a>
 			</div>
-			<form class="form" action="/userProfile/updateProfile" method="post"
-				id="registrationForm">
+			
 				<div class="form-group">
 					<div class="col-xs-6">
 						<label for="firstName"><h4>First name</h4></label> <input
@@ -156,9 +156,10 @@
 				</div>
 			</div>
 
-			</form>
+			
 
 		</div>
+		</form>
 		<!--/tab-pane-->
 	</div>
 	<!--/tab-pane-->

@@ -10,7 +10,8 @@
 
 	</ul>
 
-
+<form class="form" action="/userProfile/updateProfile" method="post"
+				id="registrationForm">
 	<div class="tab-content">
 		<div class="tab-pane active" id="profile">
 			<hr>
@@ -18,12 +19,11 @@
 				style="position: absolute; right: 30px; top: 76px; z-index: 1;">
 				<a><i class="fa fa-edit fa-2x pull-right"></i></a>
 			</div>
-			<form class="form" action="/userProfile/updateProfile" method="post"
-				id="registrationForm">
+			
 				<div class="form-group">
 
 					<div class="col-xs-6">
-						<label for="firstName"><h4>First name</h4></label> <input
+						<label for="firstName"><h5>First name</h5></label> <input
 							type="text" class="form-control" name="firstName" id="first_name"
 							placeholder="Enter your first name" title="Enter your first name"
 							value="${student.firstName}">
@@ -32,7 +32,7 @@
 				<div class="form-group">
 
 					<div class="col-xs-6">
-						<label for="lastName"><h4>Last name</h4></label> <input
+						<label for="lastName"><h5>Last name</h5></label> <input
 							type="text" class="form-control" name="lastName" id="last_name"
 							placeholder="Enter your last name" title="Enter your last name"
 							value="${student.lastName}">
@@ -42,7 +42,7 @@
 				<div class="form-group">
 
 					<div class="col-xs-6">
-						<label for="phone"><h4>Phone</h4></label> <input type="text"
+						<label for="phone"><h5>Phone</h5></label> <input type="text"
 							class="form-control" name="phoneNo" id="phone"
 							placeholder="Enter your phone number"
 							title="Enter your phone number" value="${student.phoneNo}">
@@ -51,7 +51,7 @@
 				<div class="form-group">
 
 					<div class="col-xs-6">
-						<label for="email"><h4>Email</h4></label> <input type="email"
+						<label for="email"><h5>Email</h5></label> <input type="email"
 							class="form-control" name="email" id="email"
 							placeholder="Enter your Email id" title="Enter your Email id"
 							value="${student.email}">
@@ -60,7 +60,7 @@
 
 				<div class="form-group">
 					<div class="col-xs-6">
-						<label for="state"><h4>State</h4></label> <input type="text"
+						<label for="state"><h5>State</h5></label> <input type="text"
 							class="form-control" name="state" id="state"
 							placeholder="Enter State" title="enter your State"
 							value="${address.state}">
@@ -69,7 +69,7 @@
 				<div class="form-group">
 
 					<div class="col-xs-6">
-						<label for="city"><h4>City</h4></label> <input type="text"
+						<label for="city"><h5>City</h5></label> <input type="text"
 							class="form-control" name="city" id="city"
 							placeholder="Enter your city name" title="enter your City name"
 							value="${address.city}">
@@ -78,7 +78,7 @@
 				<div class="form-group">
 
 					<div class="col-xs-6">
-						<label for="address"><h4>Address</h4></label> <input type="text"
+						<label for="address"><h5>Address</h5></label> <input type="text"
 							class="form-control" name="address" id="address"
 							placeholder="Enter your address" title="Enter your address"
 							value="${address.address}">
@@ -87,7 +87,7 @@
 				<div class="form-group">
 
 					<div class="col-xs-6">
-						<label for="landmark"><h4>Landmark</h4></label> <input type="text"
+						<label for="landmark"><h5>Landmark</h5></label> <input type="text"
 							class="form-control" name="landmark" id="landmark"
 							placeholder="enter your Landmark" title="enter your Landmark"
 							value="${address.landmark}">
@@ -96,7 +96,7 @@
 				<div class="form-group">
 
 					<div class="col-xs-6">
-						<label for="pin"><h4>Pin Code</h4></label> <input type="text"
+						<label for="pin"><h5>Pin Code</h5></label> <input type="text"
 							class="form-control" name="pin" id="pin"
 							placeholder="Enter Pin code" title="enter pin code"
 							value="${address.pin}">
@@ -128,12 +128,10 @@
 				<a><i class="fa fa-edit fa-2x pull-right"></i></a>
 			</div>
 
-
-
 			<div class="form-group">
 
 				<div class="col-xs-6">
-					<label for="boardName"><h4>Board:</h4></label> <input type="text"
+					<label for="boardName"><h5>Board:</h5></label> <input type="text"
 						class="form-control" name="boardName" id="email"
 						placeholder="Board Name" title="enter your Board name"
 						value="${qualification.boardName}">
@@ -142,7 +140,7 @@
 			<div class="form-group">
 
 				<div class="col-xs-6">
-					<label for="stdName"><h4>Class:</h4></label> <input type="text"
+					<label for="stdName"><h5>Class:</h5></label> <input type="text"
 						class="form-control" id="stdName" name="stdName"
 						placeholder="Class Name" title="enter your Class"
 						value="${qualification.stdName}">
@@ -161,11 +159,12 @@
 				</div>
 			</div>
 
-			</form>
+			
 
 		</div>
 		<!--/tab-pane-->
 	</div>
+	</form>
 	<!--/tab-pane-->
 </div>
 <!--/tab-content-->
