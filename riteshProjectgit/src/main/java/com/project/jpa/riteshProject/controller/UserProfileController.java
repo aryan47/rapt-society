@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -14,21 +15,20 @@ import com.project.jpa.riteshProject.entity.Student;
 
 @Controller
 @SessionAttributes({ "userName", "userEmail" })
-
+@RequestMapping("/userProfile")
+@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 public class UserProfileController {
 	private Long sid;
 	@Autowired
 	private StudentJpaRepository studentRepository;
 
-	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-	@RequestMapping("/userProfile")
+	@RequestMapping(value={"/", ""})
 	public String profile(ModelMap map) {
 		setProfile(map);
-		return "UserProfile";
+		return "userprofile/UserProfile";
 	}
 
 	@RequestMapping("/updateProfile")
-
 	public String updateProfile(Student student, Address address,StudentQualification qualification) {
 		// getting data from session
 		student.setStudentqualification(qualification);
@@ -42,21 +42,26 @@ public class UserProfileController {
 		return "redirect:/userProfile";
 
 	}
-
-	@RequestMapping("/updateQualification")
-	public String updateEducation(Student student, StudentQualification qualification, ModelMap model) {
-		// getting data from session
-		student.setEmail((String) model.get("userEmail"));
-		student.setStudentqualification(qualification);
-		student.setId(sid);
-		System.out.println("--d " + student + " " + student.getStudentqualification());
-		// update the data to the database
-
-		studentRepository.save(student);
-
-		return "redirect:/userProfile";
-
+	@GetMapping("/profile")
+	public String profile() {
+		return "userprofile/profile";
 	}
+
+	@GetMapping("/history")
+	public String history() {
+		return "userprofile/history";
+	}
+	@GetMapping("/notification")
+	public String notification() {
+		return "userprofile/notification";
+	}
+	@GetMapping("/setting")
+	public String setting() {
+		return "userprofile/setting";
+	}
+
+
+	
 
 	public void setProfile(ModelMap map) {
 		String email = (String) map.get("userEmail");

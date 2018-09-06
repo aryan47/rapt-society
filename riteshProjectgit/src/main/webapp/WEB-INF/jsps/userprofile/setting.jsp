@@ -1,4 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,6 +44,15 @@ body {
 .badge-success {
 	background-color: #468847;
 }
+
+#listMenu li:hover {
+	background-color: grey;
+	cursor: pointer;
+	transition: 0.5s;
+}
+#listMenu li a:hover{
+    text-decoration: none;
+}
 </style>
 </head>
 
@@ -60,19 +72,36 @@ body {
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
+		<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#about" class="page-scroll">About</a></li>
-					<li><a href="#services" class="page-scroll">Services</a></li>
-					<li><a href="#team" class="page-scroll">Team</a></li>
-					<li><a href="#contact" class="page-scroll">Contact</a></li>
-					<li><a href="#">Welcome:</a></li>
-					<li><a href="/logout">Logout</a></li>
-					<li><a href="/login" class="page-scroll">Login/SignUp</a></li>
+					
+
+					<li><a href="/" >Home</a></li>
+					<security:authorize access="isAuthenticated()">
+						<li>
+						<a href="/userProfile" style="margin-top:0;padding-top:0;line-height:17px;">
+							<span style="font-size:10px"> Hello,&nbsp;
+								<c:out value="${sessionScope.userName}"></c:out>
+							</span><br>
+							<span>Profile<span></span><span class="caret"></span>
+						</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</security:authorize>
+					<security:authorize access="isAnonymous()">
+						<li><a href="/login" class="page-scroll" style="margin-top:0;padding-top:0;line-height:17px;">	
+							<span style="font-size:10px"> Hello,&nbsp;
+								
+							</span><br>
+							<span>Sign in<span></span></span></a></li>
+
+					</security:authorize>
+
+
 
 				</ul>
 			</div>
+			
 			<!-- /.navbar-collapse -->
 		</div>
 	</nav>
@@ -106,13 +135,13 @@ body {
 				</div>
 				<ul class="list-group " id="listMenu">
 
-					<li class="list-group-item"><strong>Profile</strong><span
+					<li class="list-group-item"><strong><a href="/profile">Profile</a></strong><span
 						class="badge badge-success">125</span></li>
-					<li class="list-group-item "><strong>History</strong><span
+					<li class="list-group-item "><strong><a href="/history">History</a></strong><span
 						class="badge badge-success">125</span></li>
-					<li class="list-group-item "><strong>Notification</strong><span
+					<li class="list-group-item "><strong><a href="/notification">Notification</a></strong><span
 						class="badge badge-success">125</span></li>
-					<li class="list-group-item "><i class="fa fa-cogs fa-1x"></i>&nbsp;<strong>Setting</strong></li>
+					<li class="list-group-item "><i class="fa fa-cogs fa-1x"></i>&nbsp;<strong><a href="/setting">Setting</a></strong></li>
 				</ul>
 				<div class="panel panel-default">
 					<div class="panel-heading">Social Media</div>
@@ -140,17 +169,18 @@ body {
 					<div class="tab-pane active" id="profile">
 						<hr>
 						<div class="edit"
-							style="position: absolute; right: 30px; top: 76px; z-index:1;">
+							style="position: absolute; right: 30px; top: 76px; z-index: 1;">
 							<a><i class="fa fa-edit fa-2x pull-right"></i></a>
 						</div>
-						<form class="form" action="/updateProfile" method="post" id="registrationForm">
+						<form class="form" action="/userProfile/updateProfile" method="post"
+							id="registrationForm">
 							<div class="form-group">
 
 								<div class="col-xs-6">
 									<label for="firstName"><h4>First name</h4></label> <input
 										type="text" class="form-control" name="firstName"
 										id="first_name" placeholder="Enter your first name"
-										title="Enter your first name" value="${student.firstName}" >
+										title="Enter your first name" value="${student.firstName}">
 								</div>
 							</div>
 							<div class="form-group">
@@ -172,13 +202,13 @@ body {
 										title="Enter your phone number" value="${student.phoneNo}">
 								</div>
 							</div>
-								<div class="form-group">
+							<div class="form-group">
 
 								<div class="col-xs-6">
 									<label for="email"><h4>Email</h4></label> <input type="email"
 										class="form-control" name="email" id="email"
-										placeholder="Enter your Email id"
-										title="Enter your Email id" value="${student.email}">
+										placeholder="Enter your Email id" title="Enter your Email id"
+										value="${student.email}">
 								</div>
 							</div>
 
@@ -186,8 +216,8 @@ body {
 								<div class="col-xs-6">
 									<label for="state"><h4>State</h4></label> <input type="text"
 										class="form-control" name="state" id="state"
-										placeholder="Enter State"
-										title="enter your State" value="${address.state}">
+										placeholder="Enter State" title="enter your State"
+										value="${address.state}">
 								</div>
 							</div>
 							<div class="form-group">
@@ -195,7 +225,8 @@ body {
 								<div class="col-xs-6">
 									<label for="city"><h4>City</h4></label> <input type="text"
 										class="form-control" name="city" id="city"
-										placeholder="Enter your city name" title="enter your City name" value="${address.city}" >
+										placeholder="Enter your city name"
+										title="enter your City name" value="${address.city}">
 								</div>
 							</div>
 							<div class="form-group">
@@ -203,25 +234,26 @@ body {
 								<div class="col-xs-6">
 									<label for="address"><h4>Address</h4></label> <input
 										type="text" class="form-control" name="address" id="address"
-										placeholder="Enter your address" title="Enter your address" value="${address.address}">
+										placeholder="Enter your address" title="Enter your address"
+										value="${address.address}">
 								</div>
 							</div>
 							<div class="form-group">
 
 								<div class="col-xs-6">
 									<label for="landmark"><h4>Landmark</h4></label> <input
-										type="text" class="form-control" name="landmark"
-										id="landmark" placeholder="enter your Landmark"
-										title="enter your Landmark" value="${address.landmark}">
+										type="text" class="form-control" name="landmark" id="landmark"
+										placeholder="enter your Landmark" title="enter your Landmark"
+										value="${address.landmark}">
 								</div>
 							</div>
 							<div class="form-group">
 
 								<div class="col-xs-6">
-									<label for="pin"><h4>Pin Code</h4></label> <input
-										type="text" class="form-control" name="pin"
-										id="pin" placeholder="Enter Pin code"
-										title="enter pin code" value="${address.pin}">
+									<label for="pin"><h4>Pin Code</h4></label> <input type="text"
+										class="form-control" name="pin" id="pin"
+										placeholder="Enter Pin code" title="enter pin code"
+										value="${address.pin}">
 								</div>
 							</div>
 							<div class="form-group">
@@ -235,10 +267,9 @@ body {
 									</button>
 								</div>
 							</div>
-						
 
-						<hr>
 
+							<hr>
 					</div>
 					<!--/tab-pane-->
 					<div class="tab-pane" id="education">
@@ -247,41 +278,43 @@ body {
 
 						<hr>
 						<div class="edit"
-							style="position: absolute; right: 30px; top: 76px; z-index:1;">
+							style="position: absolute; right: 30px; top: 76px; z-index: 1;">
 							<a><i class="fa fa-edit fa-2x pull-right"></i></a>
 						</div>
-						
-															
-							
-							<div class="form-group">
 
-								<div class="col-xs-6">
-									<label for="boardName"><h4>Board:</h4></label> <input type="text"
-										class="form-control" name="boardName" id="email"
-										placeholder="Board Name" title="enter your Board name" value="${qualification.boardName}">
-								</div>
-							</div>
-							<div class="form-group">
 
-								<div class="col-xs-6">
-									<label for="stdName"><h4>Class:</h4></label> <input type="text"
-										class="form-control" id="stdName" name="stdName" placeholder="Class Name"
-										title="enter your Class" value="${qualification.stdName}">
-								</div>
-							</div>
 
-							<div class="form-group">
-								<div class="col-xs-12">
-									<br>
-									<button class="btn btn-md btn-success" type="submit">
-										<i class="glyphicon glyphicon-ok-sign"></i> Save
-									</button>
-									<button class="btn btn-md" type="reset">
-										<i class="glyphicon glyphicon-repeat"></i> Reset
-									</button>
-								</div>
+						<div class="form-group">
+
+							<div class="col-xs-6">
+								<label for="boardName"><h4>Board:</h4></label> <input
+									type="text" class="form-control" name="boardName" id="email"
+									placeholder="Board Name" title="enter your Board name"
+									value="${qualification.boardName}">
 							</div>
-						
+						</div>
+						<div class="form-group">
+
+							<div class="col-xs-6">
+								<label for="stdName"><h4>Class:</h4></label> <input type="text"
+									class="form-control" id="stdName" name="stdName"
+									placeholder="Class Name" title="enter your Class"
+									value="${qualification.stdName}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-xs-12">
+								<br>
+								<button class="btn btn-md btn-success" type="submit">
+									<i class="glyphicon glyphicon-ok-sign"></i> Save
+								</button>
+								<button class="btn btn-md" type="reset">
+									<i class="glyphicon glyphicon-repeat"></i> Reset
+								</button>
+							</div>
+						</div>
+
 						</form>
 
 					</div>
@@ -297,8 +330,9 @@ body {
 	<!--/row-->
 	<script>
 		$(function() {
-			$("input[type=text],input[type=email],input[type=password],input[type=password]").attr(
-					"readonly", true);
+			$(
+					"input[type=text],input[type=email],input[type=password],input[type=password]")
+					.attr("readonly", true);
 
 			$(".edit")
 					.on(
@@ -308,10 +342,13 @@ body {
 										"input[type=text],input[type=password],input[type=password]")
 										.removeAttr("readonly");
 							});
-		$("#listMenu li").on("hover",function(){
-			$(this).style("background","red");
+			$("#listMenu li").on("click",function(){
+				console.log($(this).find('a').attr("href").html());
+				var url = "userProfile"+$(this).find('a').attr("href");
+				window.location.pathname=url;
+				});
 		});
-		});
+		
 	</script>
 </body>
 </html>

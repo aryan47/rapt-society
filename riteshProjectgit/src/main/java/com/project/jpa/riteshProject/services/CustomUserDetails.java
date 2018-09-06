@@ -6,8 +6,6 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.project.jpa.riteshProject.entity.Student;
 
@@ -28,8 +26,7 @@ public class CustomUserDetails implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		System.out.println(user.getRoles().stream().map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRole()))
-				.collect(Collectors.toList()) + "---------");
+		
 		return user.getRoles().stream().map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRole()))
 				.collect(Collectors.toList());
 

@@ -5,8 +5,6 @@
 <title>RaptSociety Sign in</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords"
-	content="stylish Sign in and Sign up Form A Flat Responsive widget, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
 	
@@ -58,16 +56,33 @@
 				successfully adder user
 			</div>
 		</c:if>
-		<div id="customAlert">
-		<c:if test="${param.error == true }">
+		
+		<c:if test="${param.resetError}">
 			<div class="alert alert-danger" id="customAlertBox">
 				<button type="button" class="close" data-dismiss="alert">×</button>
-				<span class="glyphicon glyphicon-ok-circle">&nbsp;</span>
+				<span class="glyphicon 	glyphicon glyphicon-remove-circle">&nbsp;</span>
 				Failed to login, you typed wrong user name or password. Try again.
 			</div>
 		</c:if>
+		
+		<c:if test="${param.resetSuccess}">
+			<div class="alert alert-success" id="customAlertBox">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<span class="glyphicon glyphicon-ok-circle">&nbsp;</span>
+				Check your email id for password reset link. 
+			</div>
+		</c:if>
+		
+		<c:if test="${param.password == false }">
+			<div class="alert alert-danger" id="customAlertBox">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<span class="glyphicon glyphicon-remove-circle">&nbsp;</span>
+				Email id does not exist. 
+			</div>
+		</c:if>
 	</div>
-	</div>
+	
+	
 	<div class="form-w3ls">
 		<div class="form-head-w3l">
 			<h2>s</h2>
@@ -83,12 +98,13 @@
 					<p class="header">Email Id</p>
 					<input type="text" name="username" placeholder="User Name"
 						onblur="if (this.value == '') {this.value = 'User Name';}"
-						required="required">
+						required="required" autocomplete="user-name">
 
-					<p class="header">Password</p>
+					<p class="header">Password</p> 
 					<input type="password" name="password" placeholder="Password"
 						onblur="if (this.value == '') {this.value = 'Password';}"
 						required="required">
+					<span><a href="/forgotPassword" style=" float:right; font-size:15px;">forgot password?</a></span>
 					 <input type="checkbox" id="brand" name="remember-me"> 
 					 	<label for="brand"><span></span>
 						Remember me?</label> <input type="submit" class="sign-in" value="Sign In">

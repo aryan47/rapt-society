@@ -30,7 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/bookSchedule/**").hasAnyRole("USER", "ADMIN").and().formLogin()
 				.loginPage("/login").successForwardUrl("/").failureUrl("/login?error=true").and().logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
-				.deleteCookies("remember-me").permitAll().and().rememberMe().and().csrf()
+				.permitAll().and().rememberMe().and().csrf()
 				.disable();
 		http.headers().frameOptions().sameOrigin();
 

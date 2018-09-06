@@ -22,10 +22,7 @@ public class IndexController {
 	private BasicConfiguration basic;
 	@Autowired
 	private StudentJpaRepository studentRepository;
-
-	public IndexController() {
-
-	}
+	
 
 	@GetMapping("/")
 	public String index(ModelMap model) {

@@ -15,7 +15,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Autowired
 	private StudentJpaRepository studentRepository;
 
-	@SuppressWarnings("unused")
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// configure userName field in student entity because findByName may return list

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.project.jpa.riteshProject.services.MailConfiguration;
 
 @SpringBootApplication
+
 public class RiteshProjectApplication implements CommandLineRunner {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
