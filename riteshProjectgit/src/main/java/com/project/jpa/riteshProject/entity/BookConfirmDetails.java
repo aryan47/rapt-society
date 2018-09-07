@@ -22,7 +22,7 @@ public class BookConfirmDetails {
 	@EmbeddedId
 	private UserRequestSubject userRequestSubject;
 
-	private String std;
+	
 	@Embedded
 	private Address addressEmbd;
 	@DateTimeFormat(pattern="dd-mm-yy")

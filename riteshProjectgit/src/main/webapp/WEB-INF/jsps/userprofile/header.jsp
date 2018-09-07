@@ -20,6 +20,10 @@
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
 <script src="/UserProfile/main.js" type="text/javascript"></script>
 <style>
 body {
@@ -131,17 +135,16 @@ body {
 						<a href="http://bootnipets.com">bootnipets.com</a>
 					</div>
 				</div>
-				
+
 				<div class="span3" id="sidebar">
 					<ul class="nav nav-list  ">
-						<li class="active">
-						<a href="/userProfile">
-						<i	class=" icon icon-chevron-right"></i> Profile</a></li>
-						<li>
-						<a href="/userProfile/history"><i class="icon-chevron-right"></i>
-								History</a></li>
-						<li><a href="/userProfile/setting"><i class="icon-chevron-right"></i>
-								Setting</a></li>
+						<li class="active"><a href="/userProfile"> <i
+								class=" icon icon-chevron-right"></i> Profile
+						</a></li>
+						<li><a href="/userProfile/history"><i
+								class="icon-chevron-right"></i> History</a></li>
+						<li><a href="/userProfile/setting"><i
+								class="icon-chevron-right"></i> Setting</a></li>
 					</ul>
 
 				</div>

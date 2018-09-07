@@ -25,14 +25,14 @@ public class BookScheduleController {
 	
 	
 	@RequestMapping("/formData")
-	public String getForm(BookConfirmDetails bookData,@RequestParam("sub") List<String> userSubject, Address address, ModelMap model) {
+	public String getForm(BookConfirmDetails bookData,@RequestParam("std") String std ,@RequestParam("sub") List<String> userSubject, Address address, ModelMap model) {
 		
 		//getting data from session
 		String email = (String)model.get("userEmail");
 		String name= (String)model.get("userName");
 		//set all data to bookConfirmDetails table		
 		for(String subject : userSubject) {
-			bookData.setUserRequestSubject(new UserRequestSubject(name,subject));
+			bookData.setUserRequestSubject(new UserRequestSubject(name,subject,std));
 			bookData.setEmail(email);
 			bookData.setAddressEmbd(address);
 			//save the data to the database

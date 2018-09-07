@@ -1,5 +1,6 @@
 package com.project.jpa.riteshProject.services;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.mail.MessagingException;
@@ -9,10 +10,11 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
 
+import com.project.jpa.riteshProject.JpaRepository.BookConfirmDetailsJpaRepository;
 import com.project.jpa.riteshProject.JpaRepository.StudentJpaRepository;
 import com.project.jpa.riteshProject.JpaRepository.StudentPasswordResetTokenJpaRepository;
+import com.project.jpa.riteshProject.entity.BookConfirmDetails;
 import com.project.jpa.riteshProject.entity.Student;
 import com.project.jpa.riteshProject.entity.StudentPasswordResetToken;
 
@@ -27,7 +29,8 @@ public class UserService {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	Student student;
-
+	@Autowired 
+	private BookConfirmDetailsJpaRepository bookDetail;
 	public boolean checkEmailExist(String email) {
 		student = studentRepository.findByEmail(email);
 
@@ -80,5 +83,11 @@ public class UserService {
 			System.out.println("--error changing password");
 			return "redirect:/userProfile/setting?error=true";
 		}
+	}
+
+	public List<BookConfirmDetails> getBookDetails(String email){
+		List<BookConfirmDetails> bookList = bookDetail.findByEmail(email);
+		System.out.println("-----book"+bookList.size());
+		return bookList;
 	}
 }

@@ -1,5 +1,7 @@
 package com.project.jpa.riteshProject.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -11,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.project.jpa.riteshProject.JpaRepository.StudentJpaRepository;
 import com.project.jpa.riteshProject.beans.Address;
 import com.project.jpa.riteshProject.beans.StudentQualification;
+import com.project.jpa.riteshProject.entity.BookConfirmDetails;
 import com.project.jpa.riteshProject.entity.Student;
 import com.project.jpa.riteshProject.services.UserService;
 
@@ -55,7 +59,9 @@ public class UserProfileController {
 	}
 
 	@GetMapping("/history")
-	public String history() {
+	public String history(ModelMap map){
+		List<BookConfirmDetails> bookDetails = userService.getBookDetails((String)map.get("userEmail"));
+		map.addAttribute("bookDetail", bookDetails);
 		return "userprofile/history";
 	}
 
