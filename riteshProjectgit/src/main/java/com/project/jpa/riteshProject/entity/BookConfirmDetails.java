@@ -27,6 +27,7 @@ public class BookConfirmDetails {
 	private Address addressEmbd;
 	@DateTimeFormat(pattern="dd-mm-yy")
 	private Date date;
+	private String name;
 	private String email;
 	private String phoneNo;
 	

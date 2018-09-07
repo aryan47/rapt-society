@@ -2,6 +2,8 @@ package com.project.jpa.riteshProject.controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,6 +27,7 @@ public class BookScheduleController {
 	
 	
 	@RequestMapping("/formData")
+	@Transactional
 	public String getForm(BookConfirmDetails bookData,@RequestParam("std") String std ,@RequestParam("sub") List<String> userSubject, Address address, ModelMap model) {
 		
 		//getting data from session
@@ -32,7 +35,15 @@ public class BookScheduleController {
 		String name= (String)model.get("userName");
 		//set all data to bookConfirmDetails table		
 		for(String subject : userSubject) {
-			bookData.setUserRequestSubject(new UserRequestSubject(name,subject,std));
+			UserRequestSubject userRequestSubject = new UserRequestSubject(email,subject,std);
+			
+			if(bookRepository.findEmailByUserRequestSubject(userRequestSubject)!= null) {
+				System.out.println("-------repo"+userRequestSubject);
+				return "redirect:/displayMessage?RequestAlreadyExist=true";
+			}
+			
+			bookData.setUserRequestSubject(userRequestSubject);
+			bookData.setName(name);
 			bookData.setEmail(email);
 			bookData.setAddressEmbd(address);
 			//save the data to the database

@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.project.jpa.riteshProject.JpaRepository.StudentJpaRepository;
 import com.project.jpa.riteshProject.beans.Address;
 import com.project.jpa.riteshProject.beans.StudentQualification;
