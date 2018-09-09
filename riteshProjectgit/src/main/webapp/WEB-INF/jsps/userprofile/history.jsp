@@ -35,9 +35,9 @@
 								<td><c:out value="${book.userRequestSubject.subject}"></c:out></td>
 								<td><c:out value="${book.addressEmbd.address}"></c:out></td>
 								<td><c:out value="${book.phoneNo}"></c:out></td>
-								<td><a href='#' id='edit' class='btn btn-success'
+								<td><a href='#' class='btn btn-success edit'
 									data-toggle='modal' data-target='#editBookDetail'>Edit </a>&nbsp;<a
-									href='#' class='btn btn-danger'>Delete</a></td>
+									href='#' class='btn btn-danger delete'>Delete</a></td>
 
 							</tr>
 
@@ -63,29 +63,37 @@
 
 <div class="modal fade" id="editBookDetail" role="dialog">
 	<div class="modal-dialog modal-md">
-	<form method="post" action="/updateBook">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Edit details</h4>
-			</div>
-			<div class="modal-body">
-				
+		<form method="post" action="/userProfile/updateBookDetail">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Edit details</h4>
+				</div>
+
+				<div class="modal-body">
+
+					<input type="hidden" id="modalStd" name="std"> <input
+						type="hidden" id="modalSubject" name="subject"> <input
+						type="hidden" id="modalEmail" name="altEmail"
+						value="${sessionScope.userEmail}">
+
 					<div class="form-group">
 						<label for="address">Address</label> <input type="text"
-							class="form-control" id="editAddress" placeholder="Edit address">
+							class="form-control" name="address" id="editAddress"
+							placeholder="Edit address">
 					</div>
 					<div class="form-group">
 						<label for="address">Phone no.</label> <input type="text"
-							class="form-control" id="editPhone" placeholder="Edit Phone no.">
+							class="form-control" name="phoneNo" id="editPhone"
+							placeholder="Edit Phone no.">
 					</div>
-				
+
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
 			</div>
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary">Submit</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
 		</form>
 	</div>
 </div>
@@ -94,15 +102,25 @@
 	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="/UserProfile/profileImage/main.js"></script>
 <script>
-$("#edit").on("click", function(){
-	var std = $(this).parent().parent().find("td:first");
-	var sub = std.next();
-	var addr= sub.next();
-	var phone = addr.next();
-	$("#editAddress").val(addr.text());
-	$("#editPhone").val(phone.text());
 	
-});
-</script>
+		$(".edit").on("click", function() {
+			var std = $(this).parent().parent().find("td:first");
+			var sub = std.next();
+			var addr = sub.next();
+			var phone = addr.next();
+			$("#editAddress").val(addr.text());
+			$("#editPhone").val(phone.text());
+
+			$("#modalStd").val(std.text());
+			$("#modalSubject").val(sub.text());
+
+		});
+		$(".delete").on("click",function(){
+			var std = $(this).parent().parent().find("td:first");
+			var sub = std.next();
+			location.href="/userProfile/deleteBook?std="+std.text()+"&subject="+sub.text();
+			
+			
+		});</script>
 </body>
 <%@ include file="footer.jsp"%>

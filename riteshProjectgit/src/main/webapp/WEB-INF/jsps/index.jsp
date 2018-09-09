@@ -71,21 +71,19 @@
 					<li><a href="#contact" class="page-scroll">Contact</a></li>
 
 					<security:authorize access="isAuthenticated()">
-						<li>
-						<a href="/userProfile" style="margin-top:0;padding-top:0;line-height:17px;">
-							<span style="font-size:10px"> Hello,&nbsp;
-								<c:out value="${sessionScope.userName}"></c:out>
-							</span><br>
-							<span>Profile<span></span><span class="caret"></span>
-						</a></li>
+						<li><a href="/userProfile"
+							style="margin-top: 0; padding-top: 0; line-height: 17px;"> <span
+								style="font-size: 10px"> Hello,&nbsp; <c:out
+										value="${sessionScope.userName}"></c:out>
+							</span><br> <span>Profile<span></span><span class="caret"></span></a></li>
 						<li><a href="/logout">Logout</a></li>
 					</security:authorize>
 					<security:authorize access="isAnonymous()">
-						<li><a href="/login" class="page-scroll" style="margin-top:0;padding-top:0;line-height:17px;">	
-							<span style="font-size:10px"> Hello,&nbsp;
-								
-							</span><br>
-							<span>Sign in<span></span></span></a></li>
+						<li><a href="/login" class="page-scroll"
+							style="margin-top: 0; padding-top: 0; line-height: 17px;"> <span
+								style="font-size: 10px"> Hello,&nbsp; </span><br> <span>Sign
+									in<span></span>
+							</span></a></li>
 
 					</security:authorize>
 
@@ -235,8 +233,8 @@
 							</div>
 						</div>
 					</div>
-					
-					
+
+
 					<div class="col-md-3 col-sm-6 team">
 						<div class="thumbnail">
 							<img src="index/css/img/team/03.jpg" alt="..."
