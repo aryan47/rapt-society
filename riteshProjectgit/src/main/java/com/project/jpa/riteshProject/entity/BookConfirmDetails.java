@@ -30,6 +30,7 @@ public class BookConfirmDetails {
 	private String name;
 	private String email;
 	private String phoneNo;
-	
+	private boolean isActive = true;
+	private String status="active";
 
 }

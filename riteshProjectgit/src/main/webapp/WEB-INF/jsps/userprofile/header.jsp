@@ -109,12 +109,8 @@ body {
 	</nav>
 	<hr>
 	<div class="container bootstrap snippet">
-		<div class="row">
-			<div class="col-sm-10">
-				<h1>${sessionScope.userName}</h1>
-			</div>
-		</div>
-		<div class="row" style="box-sizing: border-box;">
+		
+		<div class="row" style="box-sizing: border-box; margin-top:40px;">
 			<div class="col-sm-3 displayImg">
 				<!--left col-->
 
@@ -159,3 +155,4 @@ body {
 				</div>
 
 			</div>
+			

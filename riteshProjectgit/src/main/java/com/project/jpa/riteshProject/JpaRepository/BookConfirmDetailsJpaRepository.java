@@ -22,4 +22,8 @@ public interface BookConfirmDetailsJpaRepository extends JpaRepository<BookConfi
 	@Modifying
 	@Query("UPDATE BookConfirmDetails B SET B.phoneNo= ?2 , B.addressEmbd.address= ?3 WHERE B.userRequestSubject = ?1")
 	void updateBookDet(UserRequestSubject req, String ph, String add);
+
+	List<BookConfirmDetails> findByEmailAndIsActive(String email, boolean isActive);
+
+	
 }

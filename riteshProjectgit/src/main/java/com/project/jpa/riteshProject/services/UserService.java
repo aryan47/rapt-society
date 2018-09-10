@@ -86,8 +86,12 @@ public class UserService {
 	}
 
 	public List<BookConfirmDetails> getBookDetails(String email){
-		List<BookConfirmDetails> bookList = bookDetail.findByEmail(email);
-		System.out.println("-----book"+bookList.size());
-		return bookList;
+		return bookDetail.findByEmailAndIsActive(email,true);
+	
+	}
+
+	public List<BookConfirmDetails> getBookDetailsHistory(String email) {
+		return bookDetail.findByEmailAndIsActive(email, false);
+		
 	}
 }

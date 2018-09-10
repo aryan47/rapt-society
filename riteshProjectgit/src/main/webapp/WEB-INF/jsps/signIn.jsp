@@ -57,7 +57,7 @@
 			</div>
 		</c:if>
 		
-		<c:if test="${param.resetError}">
+		<c:if test="${param.resetError or param.error}">
 			<div class="alert alert-danger" id="customAlertBox">
 				<button type="button" class="close" data-dismiss="alert">×</button>
 				<span class="glyphicon 	glyphicon glyphicon-remove-circle">&nbsp;</span>

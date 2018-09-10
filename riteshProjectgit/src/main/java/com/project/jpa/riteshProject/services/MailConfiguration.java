@@ -14,6 +14,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import com.project.jpa.riteshProject.Configuration.BasicConfiguration;
 import com.project.jpa.riteshProject.beans.Address;
 import com.project.jpa.riteshProject.beans.ContactUsDetails;
 
@@ -22,6 +23,8 @@ public class MailConfiguration {
 
 	@Autowired
 	private JavaMailSender javaMailSender;
+	@Autowired
+	private BasicConfiguration basic;
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -29,10 +32,10 @@ public class MailConfiguration {
 
 		SimpleMailMessage mail = new SimpleMailMessage();
 
-		mail.setTo(comment.getEmail());
+		mail.setTo(basic.getAdminMail());
 		mail.setSubject("Contact Me");
 		mail.setText("name:-" + comment.getName() + " phone no:- " + comment.getPhone() + " message:-"
-				+ comment.getMessage());
+				+ comment.getMessage()+" Email:-"+comment.getEmail());
 
 		logger.info("Sending....");
 		javaMailSender.send(mail);
@@ -40,8 +43,8 @@ public class MailConfiguration {
 	}
 
 	public void sendBookConfirmationMail(String email, String name, List<String> userList, Address address) {
-		final String text = "Hello, " + name + " your booking for Demo is confirmed. Subject selected: " + userList
-				+ " and selected Location " + address + " For any modification <a>click here</a>";
+		final String text = "Hello, " + name + "\n your booking for Demo is confirmed. Subject selected: " + userList
+				+ " and selected Location " + address + " For any modification login to your account.";
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setTo(email);
 		mail.setSubject("Demo Confirmation");

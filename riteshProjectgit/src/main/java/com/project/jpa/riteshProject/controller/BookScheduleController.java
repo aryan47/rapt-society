@@ -51,7 +51,7 @@ public class BookScheduleController {
 		}	
 		
 		mail.sendBookConfirmationMail(email,name,userSubject,address);
-		model.addAttribute("userName",email);
+		model.addAttribute("userName",name);
 		model.addAttribute("location", address);
 		model.addAttribute("date", bookData.getDate());
 		return "displayMessage";

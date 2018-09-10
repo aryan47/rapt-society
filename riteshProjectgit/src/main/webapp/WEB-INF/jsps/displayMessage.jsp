@@ -6,9 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Confirmation.</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" ">
 </head>
 <body>
+
+<%--
+
 <br><br><br><br>
 <center>
 <p>Thankyou <b>${userName}</b>, We will confirm your Demo class on <b><fmt:formatDate value="${date}" pattern="dd-mm-yy"/> </b> to your 
@@ -18,5 +22,26 @@ location:<b><c:out value="${location}"></c:out></b>
 <p>Check your mail for more details.</p>
 <a href="/">Go to homepage.</a>
 </center>
+
+
+
+ --%>
+<center>
+<div class="jumbotron text-xs-center">
+  <h1 class="display-3">Thank You! <b style="text-transform: capitalize">${userName}</b></h1>
+  
+  <p class="lead"><strong>Please check your email</strong> for further details.</p>
+  <hr>
+  <p>
+    Having trouble? <a href="/#contact">Contact us</a>
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" href="/" >Continue to homepage</a>
+  </p>
+</div>
+</center>
+<script src="login/js/js/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
+
 </body>
 </html>

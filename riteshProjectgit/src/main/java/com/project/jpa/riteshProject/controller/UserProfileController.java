@@ -1,6 +1,7 @@
 package com.project.jpa.riteshProject.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -63,7 +64,9 @@ public class UserProfileController {
 	@GetMapping("/history")
 	public String history(ModelMap map) {
 		List<BookConfirmDetails> bookDetails = userService.getBookDetails((String) map.get("userEmail"));
+		List<BookConfirmDetails> bookDetailsHistory = userService.getBookDetailsHistory((String)map.get("userEmail"));
 		map.addAttribute("bookDetail", bookDetails);
+		map.addAttribute("bookDetailHistory", bookDetailsHistory);
 		return "userprofile/history";
 	}
 
@@ -92,7 +95,11 @@ public class UserProfileController {
 	@RequestMapping("/deleteBook")
 	public String deleteBook(UserRequestSubject entity,ModelMap map) {
 		entity.setAltEmail((String) map.get("userEmail"));
-		bookRepository.deleteById(entity);
+		Optional<BookConfirmDetails> userProfile =bookRepository.findById(entity);
+		BookConfirmDetails bookConfirmDetails = userProfile.get();
+		bookConfirmDetails.setActive(false);
+		bookConfirmDetails.setStatus("cancelled");
+		bookRepository.save(bookConfirmDetails);
 		return "redirect:/userprofile/history";
 	}
 

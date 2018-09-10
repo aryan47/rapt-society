@@ -6,7 +6,7 @@
 	<ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab" href="#profile">Book
 				Details:</a></li>
-
+		<li><a data-toggle="tab" href="#completed">History</a>
 	</ul>
 
 
@@ -30,7 +30,7 @@
 
 						<c:forEach var="book" items="${bookDetail}">
 
-							<tr>
+							<tr class="active">
 								<td><c:out value="${book.userRequestSubject.std}"></c:out></td>
 								<td><c:out value="${book.userRequestSubject.subject}"></c:out></td>
 								<td><c:out value="${book.addressEmbd.address}"></c:out></td>
@@ -50,6 +50,56 @@
 		</div>
 		<!--/tab-pane-->
 
+		<div class="tab-pane" id="completed">
+			<hr>
+			<div id="tableContent">
+				<table id="bookDetailHistory" cellpadding="0" cellspacing="0"
+					border="0" class="table  table-bordered table-striped"
+					id="example2">
+					<thead>
+						<tr>
+
+							<th>Class</th>
+							<th>subject</th>
+							<th>Address</th>
+							<th>Phone no.</th>
+							<th>status</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="book" items="${bookDetailHistory}">
+							<c:if test="${book.status eq 'completed'}">
+								<tr class="success">
+									<td><c:out value="${book.userRequestSubject.std}"></c:out></td>
+									<td><c:out value="${book.userRequestSubject.subject}"></c:out></td>
+									<td><c:out value="${book.addressEmbd.address}"></c:out></td>
+									<td><c:out value="${book.phoneNo}"></c:out></td>
+									<td><c:out value="${book.status}"></c:out>&nbsp;<span
+										class="glyphicon glyphicon-ok-circle success" style="color: green"></span></td>
+
+
+								</tr>
+							</c:if>
+							<c:if test="${book.status eq 'cancelled'}">
+								<tr class="danger">
+									<td><c:out value="${book.userRequestSubject.std}"></c:out></td>
+									<td><c:out value="${book.userRequestSubject.subject}"></c:out></td>
+									<td><c:out value="${book.addressEmbd.address}"></c:out></td>
+									<td><c:out value="${book.phoneNo}"></c:out></td>
+									<td><c:out value="${book.status}"></c:out>&nbsp;<span
+										class="glyphicon glyphicon glyphicon-remove-circle" style="color: #7c0107"></span></td>
+
+
+								</tr>
+							</c:if>
+
+						</c:forEach>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
 		<!--/tab-pane-->
 	</div>
 	<!--/tab-pane-->
@@ -102,25 +152,33 @@
 	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="/UserProfile/profileImage/main.js"></script>
 <script>
-	
-		$(".edit").on("click", function() {
-			var std = $(this).parent().parent().find("td:first");
-			var sub = std.next();
-			var addr = sub.next();
-			var phone = addr.next();
-			$("#editAddress").val(addr.text());
-			$("#editPhone").val(phone.text());
+	$(".edit").on("click", function() {
+		var std = $(this).parent().parent().find("td:first");
+		var sub = std.next();
+		var addr = sub.next();
+		var phone = addr.next();
+		$("#editAddress").val(addr.text());
+		$("#editPhone").val(phone.text());
 
-			$("#modalStd").val(std.text());
-			$("#modalSubject").val(sub.text());
+		$("#modalStd").val(std.text());
+		$("#modalSubject").val(sub.text());
 
-		});
-		$(".delete").on("click",function(){
-			var std = $(this).parent().parent().find("td:first");
-			var sub = std.next();
-			location.href="/userProfile/deleteBook?std="+std.text()+"&subject="+sub.text();
-			
-			
-		});</script>
+	});
+	$(".delete").on(
+			"click",
+			function() {
+				var std = $(this).parent().parent().find("td:first");
+				var sub = std.next();
+				location.href = "/userProfile/deleteBook?std=" + std.text()
+						+ "&subject=" + sub.text();
+
+			});
+	$(function() {
+		$("#bookDetail").DataTable();
+	});
+	$(function() {
+		$("#bookDetailHistory").DataTable();
+	});
+</script>
 </body>
 <%@ include file="footer.jsp"%>

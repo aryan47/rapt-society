@@ -54,10 +54,15 @@ insert into role(role_id,role) values(600,'USER');
 insert into user_role(user_id, role_id) values(305,600);
 
 insert into BOOK_CONFIRM_DETAILS
-(name,subject,address,city, landmark, pin, state, date, email, ALT_EMAIL,phone_no,std) 
-values('ritesh','physics','morabadi','ranchi','school',834008,'jh', CURRENT_DATE() ,'aryan.hitesh47@gmail.com','aryan.hitesh47@gmail.com',999999999,1);
+(name,subject,address,city, landmark, pin, state, date, email, ALT_EMAIL,phone_no,std,is_active,status) 
+values('ritesh','physics','morabadi','ranchi','school',834008,'jh', CURRENT_DATE() ,'aryan.hitesh47@gmail.com','aryan.hitesh47@gmail.com',999999999,1,true,'active');
 insert into BOOK_CONFIRM_DETAILS
-(name,subject,address,city, landmark, pin, state, date, email, ALT_EMAIL,phone_no,std) 
-values('subu','chem','morabadi','ranchi','school',834008,'jh', CURRENT_DATE() ,'subu@gmail.com','subu@gmail.com',999999999,2);
+(name,subject,address,city, landmark, pin, state, date, email, ALT_EMAIL,phone_no,std,is_active,status) 
+values('subu','chem','morabadi','ranchi','school',834008,'jh', CURRENT_DATE() ,'subu@gmail.com','subu@gmail.com',999999999,2,true,'active');
 insert into BOOK_CONFIRM_DETAILS
-(name,subject,address,city, landmark, pin, state, date, email, ALT_EMAIL,phone_no,std) values('ritesh','chemistry','morabadi','ranchi','school',834008,'jh', CURRENT_DATE() ,'aryan.hitesh47@gmail.com','aryan.hitesh47@gmail.com',999999999,3)
+(name,subject,address,city, landmark, pin, state, date, email, ALT_EMAIL,phone_no,std,is_active,status) 
+values('ritesh','chemistry','morabadi','ranchi','school',834008,'jh', CURRENT_DATE() ,'aryan.hitesh47@gmail.com','aryan.hitesh47@gmail.com',999999999,3,false,'completed');
+insert into BOOK_CONFIRM_DETAILS
+(name,subject,address,city, landmark, pin, state, date, email, ALT_EMAIL,phone_no,std,is_active,status) 
+values('ritesh','english','morabadi','ranchi','school',834008,'jh', CURRENT_DATE() ,'aryan.hitesh47@gmail.com','aryan.hitesh47@gmail.com',999999999,3,false,'cancelled')
+
