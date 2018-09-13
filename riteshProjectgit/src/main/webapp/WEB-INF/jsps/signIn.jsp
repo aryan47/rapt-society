@@ -84,9 +84,7 @@
 	
 	
 	<div class="form-w3ls">
-		<div class="form-head-w3l">
-			<h2>s</h2>
-		</div>
+		
 		<ul class="tab-group cl-effect-4">
 			<li class="tab active"><a href="#signin-agile">Sign In</a></li>
 			<li class="tab"><a href="#signup-agile">Sign Up</a></li>

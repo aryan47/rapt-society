@@ -329,3 +329,10 @@ select: focus{
     border-right: 2px solid #ccc;
 
 }
+@media only screen and (max-width: 602px){
+	#msform{
+	width:100%;
+	border:2px solid red;
+	
+	}
+}

@@ -23,7 +23,7 @@
         <input type="hidden" id="std" value="${param.std}" />
 
         <!-- multistep form -->
-        <form id="msform" action="/formData" method="get">
+        <form id="msform" action="/formData" method="get" style="border:2px solid blue;">
             <input type="hidden" id="location" name="location"
                    value="${param.location}" />
             <!-- progressbar -->

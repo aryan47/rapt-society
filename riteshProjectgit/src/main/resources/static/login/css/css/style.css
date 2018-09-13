@@ -125,6 +125,7 @@ h1 {
 	padding: 40px 50px;
 	width:35%;
 	margin:0px auto;
+	border-radius:5px;
 }
 .tab-group {
 	list-style: none;
