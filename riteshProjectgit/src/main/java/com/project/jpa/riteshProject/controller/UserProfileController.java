@@ -20,6 +20,7 @@ import com.project.jpa.riteshProject.beans.StudentQualification;
 import com.project.jpa.riteshProject.beans.UserRequestSubject;
 import com.project.jpa.riteshProject.entity.BookConfirmDetails;
 import com.project.jpa.riteshProject.entity.Student;
+import com.project.jpa.riteshProject.services.ImageUploadService;
 import com.project.jpa.riteshProject.services.UserService;
 
 @Controller
@@ -33,11 +34,14 @@ public class UserProfileController {
 	@Autowired
 	private UserService userService;
 	@Autowired
+	private ImageUploadService imageService;
+	@Autowired
 	private BookConfirmDetailsJpaRepository bookRepository;
 
 	@RequestMapping(value = { "/", "" })
 	public String profile(ModelMap map) {
 		setProfile(map);
+		
 		return "userprofile/UserProfile";
 	}
 

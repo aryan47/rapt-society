@@ -109,17 +109,21 @@ body {
 	</nav>
 	<hr>
 	<div class="container bootstrap snippet">
-		
-		<div class="row" style="box-sizing: border-box; margin-top:40px;">
+
+		<div class="row" style="box-sizing: border-box; margin-top: 40px;">
 			<div class="col-sm-3 displayImg">
 				<!--left col-->
 
 				<div class="text-center "
 					style="box-sizing: border-box; padding: 15px">
-					<img src="/UserProfile/profileImage/01.jpg"
-						class="avatar img-circle img-thumbnail bg-success" alt="avatar">
-					<h6>Upload a different photo...</h6>
-					<input type="file" class="text-center center-block file-upload">
+					<img src="/getImage"
+						class="avatar img-circle img-thumbnail bg-success"  onerror="this.src='/images/profile.png';">
+					<form method="post" action="/uploadImage"
+						enctype="multipart/form-data">
+						<label for="file"><a>Change Image</a></label>
+						<input type="file" name="file" id="file"class="file-upload" style="display:none;"><br>
+						<input type="submit" class="btn btn-secondary btn-sm" value="upload">
+					</form>
 				</div>
 				<hr>
 				<br>
@@ -155,4 +159,3 @@ body {
 				</div>
 
 			</div>
-			

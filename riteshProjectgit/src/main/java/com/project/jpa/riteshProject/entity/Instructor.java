@@ -29,7 +29,9 @@ public class Instructor {
 	@GeneratedValue
 	private Long id;
 	@NotNull
-	private String name;
+	private String firstName;
+	@NotNull
+	private String lastName;
 	@Email
 	private String email;
 	private String password;

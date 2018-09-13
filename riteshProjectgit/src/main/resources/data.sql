@@ -1,8 +1,8 @@
-insert into Instructor(id, name, email, password) values(100,'ritesh','rit@gmail.com','password');
-insert into Instructor(id, name, email, password) values(101,'subu','subu@gmail.com','password');
-insert into Instructor(id, name, email, password) values(102,'ravi','ravi@gmail.com','password');
-insert into Instructor(id,name, email, password) values(103,'rani','rani@gmail.com','password');
-insert into Instructor(id,name, email, password) values(104,'roshan','roshan@gmail.com','password');
+insert into Instructor(id, first_name, last_name, email, password) values(100,'ritesh','kant','rit@gmail.com','password');
+insert into Instructor(id, first_name, last_name, email, password) values(101,'subu','mishra','subu@gmail.com','password');
+insert into Instructor(id, first_name, last_name, email, password) values(102,'ravi','kant','ravi@gmail.com','password');
+insert into Instructor(id, first_name, last_name, email, password) values(103,'rani','kumari','rani@gmail.com','password');
+insert into Instructor(id, first_name, last_name, email, password) values(104,'roshan','kumar','roshan@gmail.com','password');
 
 insert into Subject(id, name) values(200,'ENGLISH');
 insert into Subject(id, name) values(201,'PHYSICS');
