@@ -35,9 +35,9 @@
 								<td><c:out value="${book.userRequestSubject.subject}"></c:out></td>
 								<td><c:out value="${book.addressEmbd.address}"></c:out></td>
 								<td><c:out value="${book.phoneNo}"></c:out></td>
-								<td><a href='#' class='btn btn-success edit'
-									data-toggle='modal' data-target='#editBookDetail'>Edit </a>&nbsp;<a
-									href='#' class='btn btn-danger delete'>Delete</a></td>
+								<td><a href='#' class='btn btn-success btn-sm edit '
+									data-toggle='modal' data-target='#editBookDetail'>   Edit   </a>&nbsp;<a
+									href='#' class='btn btn-danger btn-sm delete '>   Delete   </a></td>
 
 							</tr>
 
@@ -157,6 +157,7 @@
 		var sub = std.next();
 		var addr = sub.next();
 		var phone = addr.next();
+		
 		$("#editAddress").val(addr.text());
 		$("#editPhone").val(phone.text());
 

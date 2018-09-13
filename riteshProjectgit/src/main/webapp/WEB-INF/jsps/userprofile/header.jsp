@@ -40,7 +40,7 @@ body {
 }
 
 .displayImg {
-	background-color: #ccc;
+	background-color: #f5f5f5;
 	padding: 10px 0px;
 	box-shadow: 1px 1px 6px grey;
 }
@@ -57,6 +57,9 @@ body {
 
 #listMenu li a:hover {
 	text-decoration: none;
+}
+.edit, .delete {
+width:70px;
 }
 </style>
 </head>
