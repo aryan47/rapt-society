@@ -26,23 +26,25 @@
 
 <script src="/UserProfile/main.js" type="text/javascript"></script>
 <style>
+
 body {
-	background: #f4f4f4;
+	background: #fff;
+    
 }
 
 @media only screen and (min-width: 781px) {
 	#displayDiv {
-		background-color: white;
-		padding: 10px;
-		margin-left: 19px;
-		box-shadow: 1px 1px 6px grey;
+		background-color: #Fff;
+		padding: 30px;
+		
+		box-shadow: 0 0  3px #ccc;
 	}
 }
 
 .displayImg {
-	background-color: #f5f5f5;
+	background-color: #F7F7F7;
 	padding: 10px 0px;
-	box-shadow: 1px 1px 6px grey;
+	box-shadow: 0 0 5px #ccc;
 }
 
 .badge-success {
@@ -60,6 +62,14 @@ body {
 }
 .edit, .delete {
 width:70px;
+}
+#sidebar{
+    border-top: 2px solid #DEDEDE;
+}
+.avatar{
+background:white;
+border:1px solid #dedede;
+ padding:1px;
 }
 </style>
 </head>
@@ -128,19 +138,10 @@ width:70px;
 						<input type="submit" class="btn btn-secondary btn-sm" value="upload">
 					</form>
 				</div>
-				<hr>
-				<br>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Website <i class="fa fa-link fa-1x"></i>
-					</div>
-					<div class="panel-body">
-						<a href="http://bootnipets.com">bootnipets.com</a>
-					</div>
-				</div>
+							
 
 				<div class="span3" id="sidebar">
-					<ul class="nav nav-list  ">
+					<ul class="nav nav-list success ">
 						<li class="active"><a href="/userProfile"> <i
 								class=" icon icon-chevron-right"></i> Profile
 						</a></li>
