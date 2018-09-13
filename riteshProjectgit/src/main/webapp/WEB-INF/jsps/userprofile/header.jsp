@@ -28,8 +28,8 @@
 <style>
 
 body {
-	background: #fff;
-    
+    font-family: montserrat, arial, verdana;
+    background:#fff;
 }
 
 @media only screen and (min-width: 781px) {
