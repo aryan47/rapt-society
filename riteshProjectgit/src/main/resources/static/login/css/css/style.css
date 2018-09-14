@@ -90,12 +90,17 @@ body {
 	-o-background-size:100% 100%;
 	-ms-background-size:100% 100%;
 	font-family: 'Sansita', sans-serif;
+	margin: 0;
+	padding:0;
 }
 *, *:before, *:after {
   box-sizing: border-box;
 }
 html {
   overflow-y: scroll;
+  	margin:0;
+  	padding:0;
+  	height:100%;
 }
 h1 {
 	font-size: 40px;
@@ -124,8 +129,9 @@ h1 {
     background:#ffffff;
 	padding: 40px 50px;
 	width:35%;
-	margin:20px auto;
+	margin:auto auto;
 	border-radius:5px;
+
 }
 .tab-group {
 	list-style: none;
