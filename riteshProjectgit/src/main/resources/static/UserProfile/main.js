@@ -16,5 +16,13 @@ $(document).ready(function() {
 
     $(".file-upload").on('change', function(){
         readURL(this);
+       
     });
+    
+    $("#profileImageForm").submit(function(e){    	
+    	var file=$("#file")[0].files[0];
+    	if(file == null){
+    		e.preventDefault();
+    	}
+    })
 });

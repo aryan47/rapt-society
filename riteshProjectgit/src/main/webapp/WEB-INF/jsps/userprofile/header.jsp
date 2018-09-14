@@ -127,7 +127,7 @@ border:1px solid #dedede;
 					style="box-sizing: border-box; padding: 15px">
 					<img src="/getImage"
 						class="avatar img-circle img-thumbnail bg-success"  onerror="this.src='/images/profile.png';">
-					<form method="post" action="/uploadImage"
+					<form method="post" id="profileImageForm"action="/uploadImage"
 						enctype="multipart/form-data">
 						<label for="file"><a>Change Image</a></label>
 						<input type="file" name="file" id="file"class="file-upload" style="display:none;"><br>
