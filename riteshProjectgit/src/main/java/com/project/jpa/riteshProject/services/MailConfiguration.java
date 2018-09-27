@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -64,6 +65,8 @@ public class MailConfiguration {
 		String resetUrl = url + "/changePassword?token=" + token;
 		String htmlContent = "<p>Click this link to reset your password </p><a href='"+resetUrl+"'>click here</a>";
 		helper.setText(htmlContent, true);
+		FileSystemResource file = new FileSystemResource("src/main/resources/static/images/profile.png");
+		helper.addAttachment(file.getFilename(), file);
 		logger.info("---sending reset link.......");
 		javaMailSender.send(message);
 		logger.info("---sent.......");

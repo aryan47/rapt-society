@@ -29,6 +29,7 @@ public class StudentPasswordResetToken {
 		Calendar now = Calendar.getInstance();
 		now.add(Calendar.MINUTE, minute);
 		this.expiryDate = now.getTime();
+		System.out.println("-------expiry "+expiryDate);
 	}
 	public boolean isExpired() {
 		return new Date().after(this.expiryDate);

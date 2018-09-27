@@ -1,5 +1,6 @@
 package com.project.jpa.riteshProject.Configuration;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 @ConfigurationProperties(prefix="basic")
 public class BasicConfiguration {
+	
 	private String url;
 	private String adminMail;
 
