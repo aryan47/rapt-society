@@ -46,7 +46,7 @@ public class setting {
 		studentToken.setExpiryDate(30);
 		studentToken.setStudent(student);
 		tokenRepository.save(studentToken);
-		mail.sendForgotPasswordMail(email, token, request);
+		mail.sendForgotPasswordMail(email,student.getFirstName(), token, request);
 		return "login?resetSuccess=true";
 
 	}

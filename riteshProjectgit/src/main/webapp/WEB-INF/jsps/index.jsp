@@ -337,7 +337,7 @@
 			<div>
 				<p>
 					&copy; 2016 NEST. All rights reserved. Designed by <a
-						href="http://www.templatewire.com" rel="nofollow">TemplateWire</a>
+						href="#" rel="nofollow">TemplateWire</a>
 				</p>
 			</div>
 		</div>

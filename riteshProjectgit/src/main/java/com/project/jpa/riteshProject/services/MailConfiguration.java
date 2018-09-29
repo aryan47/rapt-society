@@ -14,6 +14,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.spring5.SpringTemplateEngine;
 
 import com.project.jpa.riteshProject.Configuration.BasicConfiguration;
 import com.project.jpa.riteshProject.beans.Address;
@@ -26,6 +28,8 @@ public class MailConfiguration {
 	private JavaMailSender javaMailSender;
 	@Autowired
 	private BasicConfiguration basic;
+	@Autowired
+    private SpringTemplateEngine templateEngine;
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -33,6 +37,7 @@ public class MailConfiguration {
 
 		SimpleMailMessage mail = new SimpleMailMessage();
 
+		
 		mail.setTo(basic.getAdminMail());
 		mail.setSubject("Contact Me");
 		mail.setText("name:-" + comment.getName() + " phone no:- " + comment.getPhone() + " message:-"
@@ -55,7 +60,7 @@ public class MailConfiguration {
 		logger.info("done.");
 	}
 
-	public void sendForgotPasswordMail(String email, String token, HttpServletRequest request)
+	public void sendForgotPasswordMail(String email, String name, String token, HttpServletRequest request)
 			throws MessagingException {
 		MimeMessage message = javaMailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -64,9 +69,17 @@ public class MailConfiguration {
 		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
 		String resetUrl = url + "/changePassword?token=" + token;
 		String htmlContent = "<p>Click this link to reset your password </p><a href='"+resetUrl+"'>click here</a>";
-		helper.setText(htmlContent, true);
-		FileSystemResource file = new FileSystemResource("src/main/resources/static/images/profile.png");
-		helper.addAttachment(file.getFilename(), file);
+//		helper.setText(htmlContent, true);
+		
+		Context context = new Context();       
+		context.setVariable("address", "Morabadi t.o.p");
+		context.setVariable("resetUrl", resetUrl);
+		context.setVariable("name", name);
+        String html = templateEngine.process("resetPassword.html", context);
+        helper.setText(html,true);
+		
+//		FileSystemResource file = new FileSystemResource("src/main/resources/static/images/profile.png");
+//		helper.addAttachment(file.getFilename(), file);
 		logger.info("---sending reset link.......");
 		javaMailSender.send(message);
 		logger.info("---sent.......");
