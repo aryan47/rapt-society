@@ -84,4 +84,23 @@ public class MailConfiguration {
 		javaMailSender.send(message);
 		logger.info("---sent.......");
 	}
+	public void sendAccountCreatedMail(String email, HttpServletRequest request)
+			throws MessagingException {
+		MimeMessage message = javaMailSender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(message, true);
+		helper.setTo(email);
+		helper.setSubject("Account Created :");
+		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();		
+		
+		Context context = new Context();       
+		context.setVariable("url", url);
+        String html = templateEngine.process("accountCreated.html", context);
+        helper.setText(html,true);
+		
+//		FileSystemResource file = new FileSystemResource("src/main/resources/static/images/profile.png");
+//		helper.addAttachment(file.getFilename(), file);
+		logger.info("---sending account created mail.......");
+		javaMailSender.send(message);
+		logger.info("---sent.......");
+	}
 }
