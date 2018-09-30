@@ -27,6 +27,7 @@
 <link href="//fonts.googleapis.com/css?family=Poiret+One"
 	rel="stylesheet">
 <!--//online_fonts-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!--stylesheet-->
 
@@ -98,17 +99,16 @@
 
 					<p class="header">Email Id</p>
 					<input type="text" name="username" placeholder="User Name"
-						onblur="if (this.value == '') {this.value = 'User Name';}"
 						required="required" autocomplete="user-name">
 
 					<p class="header">Password</p>
-					<input type="password" name="password" placeholder="Password"
-						onblur="if (this.value == '') {this.value = 'Password';}"
+					<input type="password" id="loginPassword" name="password" placeholder="Password"
 						required="required"> <span><a
 						href="/forgotPassword" style="float: right; font-size: 15px;">forgot
 							password?</a></span> <input type="checkbox" id="brand" name="remember-me">
-					<label for="brand"><span></span> Remember me?</label> <input
-						type="submit" class="sign-in" value="Sign In">
+					<label for="brand"><span></span> Remember me?</label> 
+					<button
+						type="submit" class="sign-in" id="signInButton"><i></i>Sign In</button>
 				</form>
 			</div>
 			<div id="signup-agile">
@@ -120,7 +120,6 @@
 					<p class="header">Last Name</p>
 					<input type="text" name="lastName" placeholder="Your Last Name"
 						required="required">
-
 					<p class="header">Email Address</p>
 					<input type="email" id="checkEmail" name="email"
 						placeholder="Email"
@@ -144,7 +143,7 @@
 								Settings</a>.
 						</label>
 					</fieldset>
-					<input type="submit" id="btnSubmit" class="register" value="Sign up" >
+					<button type="submit" id="btnSubmit" class="register"><i></i>Sign up</button>
 				</form>
 			</div>
 		</div>
@@ -164,6 +163,7 @@
 		$(function() {
 			var emailAlreadyExist=false;
 			var agree=false;
+			var passValid= true;
 			$("#checkEmail").on('keyup',function(){				
 				var checkEmail = $("#checkEmail").val();
 				url = location.href + "/checkEmail";				
@@ -189,17 +189,30 @@
 			$('#createUserForm').on('submit', function(event) {				
 				var pass = $("#password").val();				
 				var confirmPass = $("#confirmPassword").val();
+				if(pass.trim()==""){
+					$("#formValidationMessage").text("Password can't be empty!").css("color", "red");
+					passValid = false;
+				}
 				if( $("#agree").is(":checked")){					
 					agree = true;
 				}
 				if(pass != confirmPass){
 					$("#formValidationMessage").text('Password does not match!').css("color", "red");
+					passValid =false;
 				}
-				if ((pass != confirmPass) || emailAlreadyExist || !agree) {					
+				<!--alert("!passValid: "+!passValid+" emailAlreadyExist: "+emailAlreadyExist+" !agree: "+!agree)-->
+				if (!passValid || emailAlreadyExist || !agree) {					
 					event.preventDefault();					
 				}
+				$("#btnSubmit i").addClass("fa fa-spinner fa-spin");
 								
 			});
+		});
+		$(function(){
+			$("#signInButton").on('submit',function(){
+				$("#signInButton i").addClass("fa fa-spinner fa-spin");
+			});
+			
 		});
 	</script>
 	<script src="/login/js/js/index.js"></script>
