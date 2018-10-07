@@ -62,6 +62,7 @@ body {
 }
 .edit, .delete {
 width:70px;
+cursor: pointer;
 }
 #sidebar{
     border-top: 2px solid #DEDEDE;

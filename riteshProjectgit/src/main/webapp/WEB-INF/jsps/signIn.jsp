@@ -200,11 +200,20 @@
 					$("#formValidationMessage").text('Password does not match!').css("color", "red");
 					passValid =false;
 				}
-				<!--alert("!passValid: "+!passValid+" emailAlreadyExist: "+emailAlreadyExist+" !agree: "+!agree)-->
-				if (!passValid || emailAlreadyExist || !agree) {					
+				else{
+					passValid = true;
+				}
+				alert("!passValid: "+!passValid+" emailAlreadyExist: "+emailAlreadyExist+" !agree: "+!agree);
+				alert("pass: "+pass+" confirm pass: "+confirmPass);
+				if (!passValid || emailAlreadyExist || !agree) {	
+					$("#btnSubmit i").removeClass("fa fa-spinner fa-spin");
 					event.preventDefault();					
 				}
-				$("#btnSubmit i").addClass("fa fa-spinner fa-spin");
+				else{
+					$("#btnSubmit i").addClass("fa fa-spinner fa-spin");
+					alert("added class spinner");
+				}
+				
 								
 			});
 		});
