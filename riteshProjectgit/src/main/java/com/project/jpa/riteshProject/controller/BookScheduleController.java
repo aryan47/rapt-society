@@ -39,7 +39,7 @@ public class BookScheduleController {
 		for (String subject : userSubject) {
 			UserRequestSubject userRequestSubject = new UserRequestSubject(email, subject, std);
 
-			if (bookRepository.findEmailByUserRequestSubject(userRequestSubject) != null) {
+			if (bookRepository.findEmailByUserRequestSubjectAndIsActive(userRequestSubject, true) != null) {
 				System.out.println("-------repo" + userRequestSubject);
 				return "redirect:/displayMessage?RequestAlreadyExist=true";
 			}

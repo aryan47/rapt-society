@@ -15,8 +15,8 @@ import com.project.jpa.riteshProject.entity.BookConfirmDetails;
 @RepositoryRestResource(path = "/bookConfirmDetails")
 public interface BookConfirmDetailsJpaRepository extends JpaRepository<BookConfirmDetails, UserRequestSubject> {
 	List<BookConfirmDetails> findByEmail(String email);
-
-	Object findEmailByUserRequestSubject(UserRequestSubject userRequestSubject);
+	@Query("SELECT U.email FROM  BookConfirmDetails  U WHERE userRequestSubject =?1 AND isActive=?2")
+	Object findEmailByUserRequestSubjectAndIsActive(UserRequestSubject userRequestSubject, boolean isActive);
 	
 	@Transactional
 	@Modifying

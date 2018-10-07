@@ -342,12 +342,11 @@ a {
 													<td class="mini-block-padding">
 														<table cellspacing="0" cellpadding="0" width="100%"
 															style="border-collapse: separate !important;">
-															<tr class="mini-block">
-																<span class="header-sm">Demo Subject:</span>
-																<span th:each="subject  : ${subjects}"> 
-																<span th:text="${subject}"></span> <br />
-																</span>
-
+															<tr >
+																<td class="mini-block"><span class="header-sm">Demo Subject:</span><br /> <span
+																	th:each="subject  : ${subjects}"> <span
+																		th:text="${subject}"></span> <br />
+																</span></td>
 															</tr>
 
 														</table>
