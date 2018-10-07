@@ -28,34 +28,40 @@ public class MailConfiguration {
 	@Autowired
 	private BasicConfiguration basic;
 	@Autowired
-    private SpringTemplateEngine templateEngine;
+	private SpringTemplateEngine templateEngine;
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public void sendContactUsMail(ContactUsDetails comment) {
 
 		SimpleMailMessage mail = new SimpleMailMessage();
-
-		
 		mail.setTo(basic.getAdminMail());
 		mail.setSubject("Contact Me");
 		mail.setText("name:-" + comment.getName() + " phone no:- " + comment.getPhone() + " message:-"
-				+ comment.getMessage()+" Email:-"+comment.getEmail());
+				+ comment.getMessage() + " Email:-" + comment.getEmail());
 
 		logger.info("Sending....");
 		javaMailSender.send(mail);
 		logger.info("done");
 	}
 
-	public void sendBookConfirmationMail(String email, String name, List<String> userList, Address address) {
-		final String text = "Hello, " + name + "\n your booking for Demo is confirmed. Subject selected: " + userList
-				+ " and selected Location " + address + " For any modification login to your account.";
-		SimpleMailMessage mail = new SimpleMailMessage();
-		mail.setTo(email);
-		mail.setSubject("Demo Confirmation");
-		logger.info("Sending....email " + email);
-		mail.setText(text);
-		javaMailSender.send(mail);
+	public void sendBookConfirmationMail(String email, String name, List<String> userList, Address address, HttpServletRequest request) throws MessagingException {
+//		final String text = "Hello, " + name + "\n your booking for Demo is confirmed. Subject selected: " + userList
+//				+ " and selected Location " + address + " For any modification login to your account.";
+		MimeMessage message = javaMailSender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(message, true);
+		helper.setTo(email);
+		helper.setSubject("Demo Confirmation");
+		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+		Context context = new Context();
+		context.setVariable("name",name);
+		context.setVariable("subjects",userList);
+		context.setVariable("address",address);
+		context.setVariable("url", url);
+		logger.info("Sending confirmation....email " + email);
+		String html = templateEngine.process("displayMessage.html", context);
+		helper.setText(html, true);
+		javaMailSender.send(message);
 		logger.info("done.");
 	}
 
@@ -67,37 +73,38 @@ public class MailConfiguration {
 		helper.setSubject("Password Reset:");
 		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
 		String resetUrl = url + "/changePassword?token=" + token;
-		String htmlContent = "<p>Click this link to reset your password </p><a href='"+resetUrl+"'>click here</a>";
-//		helper.setText(htmlContent, true);
-		
-		Context context = new Context();       
+		// helper.setText(htmlContent, true);
+
+		Context context = new Context();
 		context.setVariable("address", "Morabadi t.o.p");
 		context.setVariable("resetUrl", resetUrl);
 		context.setVariable("name", name);
-        String html = templateEngine.process("resetPassword.html", context);
-        helper.setText(html,true);
-		
-//		FileSystemResource file = new FileSystemResource("src/main/resources/static/images/profile.png");
-//		helper.addAttachment(file.getFilename(), file);
+		String html = templateEngine.process("resetPassword.html", context);
+		helper.setText(html, true);
+
+		// FileSystemResource file = new
+		// FileSystemResource("src/main/resources/static/images/profile.png");
+		// helper.addAttachment(file.getFilename(), file);
 		logger.info("---sending reset link.......");
 		javaMailSender.send(message);
 		logger.info("---sent.......");
 	}
-	public void sendAccountCreatedMail(String email, HttpServletRequest request)
-			throws MessagingException {
+
+	public void sendAccountCreatedMail(String email, HttpServletRequest request) throws MessagingException {
 		MimeMessage message = javaMailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message, true);
 		helper.setTo(email);
 		helper.setSubject("Account Created :");
-		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();		
-		
-		Context context = new Context();       
+		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+
+		Context context = new Context();
 		context.setVariable("url", url);
-        String html = templateEngine.process("accountCreated.html", context);
-        helper.setText(html,true);
-		
-//		FileSystemResource file = new FileSystemResource("src/main/resources/static/images/profile.png");
-//		helper.addAttachment(file.getFilename(), file);
+		String html = templateEngine.process("accountCreated.html", context);
+		helper.setText(html, true);
+
+		// FileSystemResource file = new
+		// FileSystemResource("src/main/resources/static/images/profile.png");
+		// helper.addAttachment(file.getFilename(), file);
 		logger.info("---sending account created mail.......");
 		javaMailSender.send(message);
 		logger.info("---sent.......");

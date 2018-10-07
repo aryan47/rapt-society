@@ -6,34 +6,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Confirmation</title>
+<title>Page not found</title>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" ">
 </head>
 <body>
 
-<%--
 
-<br><br><br><br>
-<center>
-<p>Thankyou <b>${userName}</b>, We will confirm your Demo class on <b><fmt:formatDate value="${date}" pattern="dd-mm-yy"/> </b> to your 
-location:<b><c:out value="${location}"></c:out></b>
-</p>
-<p>your selected subjects are<b>${sub}</b></p>
-<p>Check your mail for more details.</p>
-<a href="/">Go to homepage.</a>
-</center>
-
-
-
- --%>
 <center>
 <div class="jumbotron text-xs-center">
-  <h1 class="display-3">Thank You! <b style="text-transform: capitalize">${userName}</b></h1>
+  <h1 class="display-3">This page isn't available </h1>
   
-  <p class="lead"><strong>Please check your email</strong> for further details.</p>
+ 
   <hr>
   <p>
-    Having trouble? <a href="/#contact">Contact us</a>
+   The link you followed may be broken, or the page may have been removed. <a href="/#contact"> </a>
   </p>
   <p class="lead">
     <a class="btn btn-primary btn-sm" href="/" >Continue to homepage</a>

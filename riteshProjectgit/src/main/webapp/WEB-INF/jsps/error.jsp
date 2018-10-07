@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Confirmation.</title>
+<title>Error.</title>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" ">
 </head>
 <body>
@@ -20,7 +20,7 @@
    <p class="lead"><strong><c:out value=" ${requestUrl}"></c:out></strong></p>
   <hr>
   <p>
-    Having trouble? <a href="/#contact"> </a>
+    <a href="/#contact"> Having trouble? </a>
   </p>
   <p class="lead">
     <a class="btn btn-primary btn-sm" href="/" >Continue to homepage</a>

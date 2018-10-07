@@ -235,6 +235,8 @@ style="text-transform: initial" placeholder="Search Subjects...." />
         </script>
         <%-- javascript file created by ritesh--------- --%>
             <script src="bookSchedule/js/main.js" type="text/javascript"></script>
+            
+            
             <script type="text/javascript">
                 var _gaq = _gaq || [];
                 _gaq.push([ '_setAccount', 'UA-36251023-1' ]);

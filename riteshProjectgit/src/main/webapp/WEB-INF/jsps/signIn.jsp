@@ -137,10 +137,8 @@
 						<label for="user_agree_to_terms"> <input type="checkbox"
 							id="agree" name="user[agree_to_terms]">
 							Creating an account means you are okay with our <a
-							target="_blank" href="/terms">Terms of Service</a>, <a
-							target="_blank" href="/privacy">Privacy Policy</a>, and our
-							default <a target="_blank" href="/notifications">Notification
-								Settings</a>.
+							target="_blank" href="/terms">Terms of Service </a>and <a
+							target="_blank" href="/privacy">Privacy Policy</a>
 						</label>
 					</fieldset>
 					<button type="submit" id="btnSubmit" class="register"><i></i>Sign up</button>

@@ -32,14 +32,18 @@ $(function() {
 });
 
 $(function() {
-	var url = urlHost+"/subjects";
+	var url = location.origin+"/subjects";
 	var suggName = [];
 	var details;
+	
+//	alert(location.origin);
+//	alert(location.host);
+//	alert(location.pathname);
 	$.getJSON(url).done(function(data) {
 		details = (data._embedded.subjects);
 
-	}).fail(function() {
-		alert("subjects ajax");
+	}).fail(function(e) {
+		alert("subjects ajax "+e);
 	}).always(function() {
 		$(details).each(function(index,value) {
 			suggName.push(details[index].name);
