@@ -49,13 +49,17 @@ public class ImageUploadService {
 
 	public ResponseEntity<byte[]> setProfilePic(String email) {
 		Optional<ImageUpload> findByEmail = imageRepo.findByEmail(email);
-		ImageUpload image = findByEmail.get();
-		HttpHeaders header = new HttpHeaders();
-		header.setCacheControl(CacheControl.noCache().getHeaderValue());
-		if (image != null) {
-			ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(image.getData(), header, HttpStatus.OK);
-			return responseEntity;
+		if(findByEmail.isPresent()) {
+			ImageUpload image = findByEmail.get();
+			HttpHeaders header = new HttpHeaders();
+			header.setCacheControl(CacheControl.noCache().getHeaderValue());
+			if (image != null) {
+				ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(image.getData(), header, HttpStatus.OK);
+				return responseEntity;
+			}
+			
 		}
 		return new ResponseEntity<>(HttpStatus.OK);
+		
 	}
 }

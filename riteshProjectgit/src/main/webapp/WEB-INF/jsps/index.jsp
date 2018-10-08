@@ -336,8 +336,7 @@
 			</div>
 			<div>
 				<p>
-					&copy; 2016 NEST. All rights reserved. Designed by <a
-						href="#" rel="nofollow">TemplateWire</a>
+					&copy; 2018 RAPT. All rights reserved
 				</p>
 			</div>
 		</div>

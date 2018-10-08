@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.project.jpa.riteshProject.Configuration.BasicConfiguration;
 import com.project.jpa.riteshProject.JpaRepository.StudentJpaRepository;
+import com.project.jpa.riteshProject.entity.BookConfirmDetails;
 import com.project.jpa.riteshProject.entity.Student;
 
 @Controller
@@ -52,8 +53,7 @@ public class IndexController {
 
 	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	@GetMapping("/bookSchedule")
-	public String bookSchedule(ModelMap map) {
-
+	public String bookSchedule(ModelMap map) {		
 		map.addAttribute("url", basic.getUrl());
 		return "bookSchedule";
 	}

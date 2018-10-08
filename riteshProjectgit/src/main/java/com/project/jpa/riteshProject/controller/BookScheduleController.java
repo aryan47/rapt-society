@@ -5,10 +5,12 @@ import java.util.List;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -29,9 +31,11 @@ public class BookScheduleController {
 
 	@RequestMapping("/formData")
 	@Transactional
-	public String getForm(BookConfirmDetails bookData, @RequestParam("std") String std,
+	public String getForm(@Valid BookConfirmDetails bookData, BindingResult result, @RequestParam("std") String std,
 			@RequestParam("sub") List<String> userSubject, Address address, ModelMap model, HttpServletRequest request) throws MessagingException {
-
+		if(result.hasErrors()) {
+			return "bookSchedule";
+		}
 		// getting data from session
 		String email = (String) model.get("userEmail");
 		String name = (String) model.get("userName");

@@ -13,7 +13,8 @@ $(function() {
 	var stdId = $('#std').val();
 	
 	$("#stdValue").val(stdId);
-	var urlLoc = urlHost+"/locations/" + locId +"/instructors";
+//	var urlLoc = location.origin+"/locations/" + locId +"/instructors";
+	alert(urlLoc);
 
 	$
 			.getJSON(urlLoc)
@@ -75,6 +76,37 @@ function fillListSubjects(suggName){
 	});
 	
 }
+
+//validation
+$(function() {
+
+	$("input:text, textarea, input[type=tel]").on("blur", function() {
+
+		if ($(this).attr("name") != "landmark") {
+			if ($(this).val() == null || $(this).val() == "") {
+				
+					$(this).css("border", "1px solid red");
+			}
+			else{
+				$(this).css("border", "");
+			}
+		}
+	});	
+});
+$(function(){
+	$("#msform").submit(function(event){	
+		var pin= $("#pin").val().trim();
+		var address= $("#address").val().trim();
+		var phoneNo= $("#phoneNo").val().trim();
+		
+		if(pin.length==0 || address.length==0 || phoneNo.length==0){
+			alert("Please fill in all the details.");
+			event.preventDefault();
+		}
+		
+	});
+});
+
 /*
  * $("#name").keyup( function() { console.clear(); sugg.empty();
  * sugg.addClass("open"); var inputVal = $('#name').val(); if
