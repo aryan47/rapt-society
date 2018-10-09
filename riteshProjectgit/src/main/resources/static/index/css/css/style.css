@@ -654,12 +654,12 @@ select{
    
 }
 
-.selectLocation, .selectClass, .customButton {
+#selectLocation, #selectClass, .customButton {
     display: inline-block;
     position: relative;
     
 }
-.selectLocation::after, .selectClass::after{
+#selectLocation::after, #selectClass::after{
     content: "\f13a";
     font-family: "FontAwesome";
     position: absolute;
@@ -679,7 +679,7 @@ select{
     }        
 }
 @media only screen and (max-width: 448px){
-	.selectLocation, .selectClass{
+	#selectLocation, #selectClass{
 		width:80%;
 		overflow:hidden;
 	}

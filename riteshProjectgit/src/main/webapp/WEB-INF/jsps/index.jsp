@@ -105,11 +105,11 @@
 								<strong>RAPT</strong> <span>/</span> Society
 							</h1>
 							<p>Study with us</p>
-							<form action="/bookSchedule" method="get">
+							<form id="bookScheduleForm" action="/bookSchedule" method="get">
 								<div class="selectMenu">
 
-									<div class="selectLocation">
-										<select name="location">
+									<div id="selectLocation">
+										<select name="location" id="selectLocationMenu">
 											<option value="#" selected>--Select Location--</option>
 											<option value="400">Edalhatu</option>
 											<option value="401">Bariatu</option>
@@ -117,9 +117,9 @@
 											<option value="403">Kanke</option>
 										</select>
 									</div>
-									<div class="selectClass">
-										<select name="std">
-											<option value="#" selected>--Select Class</option>
+									<div id="selectClass">
+										<select name="std" id="selectClassMenu">
+											<option value="#" selected>--Select Class--</option>
 											<option value="1">Class-1</option>
 											<option value="2">Class-2</option>
 											<option value="3">Class-3</option>
@@ -341,7 +341,12 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="index/js/js/jquery.1.11.1.js"></script>
+	<script type="text/javascript" src="login/js/js/jquery.min.js"></script>
+	<!-- jQuery easing plugin -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript" src="index/js/js/bootstrap.js"></script>
 	<script type="text/javascript" src="index/js/js/SmoothScroll.js"></script>
 	<script type="text/javascript" src="index/js/js/nivo-lightbox.js"></script>
@@ -350,5 +355,16 @@
 		src="index/js/js/jqBootstrapValidation.js"></script>
 	<script type="text/javascript" src="index/js/js/contact_me.js"></script>
 	<script type="text/javascript" src="index/js/js/main.js"></script>
+	<script>
+	$(function(){
+		$("#bookScheduleForm").on('submit',function(event){
+			var loc=$("#selectLocationMenu").val();
+			var std=$("#selectClassMenu").val();
+			if(loc == "#" || std == "#"){
+				event.preventDefault();
+			}
+		});
+	});
+	</script>
 </body>
 </html>

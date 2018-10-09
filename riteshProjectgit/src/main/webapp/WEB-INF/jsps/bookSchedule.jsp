@@ -23,7 +23,9 @@
 
 	<input type="hidden" name="" id="url" value="${url}" />
 	<input type="hidden" id="std" value="${param.std}" />
-
+<div id="spinner" style="display:none;">
+<i class="fa fa-spinner fa-spin"></i>
+</div>
 	<!-- multistep form -->
 	<form id="msform" action="/formData" method="get">
 		<input type="hidden" id="location" name="location"
@@ -82,8 +84,8 @@ style="text-transform: initial" placeholder="Search Subjects...." />
 
 			</ul>
 
-			<input type="button" name="next" class="next action-button"
-				value="Next">
+			<input type="button" id="checkNext" name="next" class="next action-button"
+				value="Next" disabled="disabled">
 		</fieldset>
 		<fieldset>
 			<h2 class="fs-title">Address Details</h2>
@@ -132,6 +134,7 @@ style="text-transform: initial" placeholder="Search Subjects...." />
 
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
+
 		$(function() {
 
 			//jQuery time

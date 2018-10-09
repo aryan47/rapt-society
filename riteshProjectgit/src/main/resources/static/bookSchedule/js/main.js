@@ -6,20 +6,41 @@ $(function() {
 		dateFormat : "dd-mm-yy",
 		minDate : 0,
 		maxDate : "+2M"
-	}).datepicker('setDate','today'+1);
+	}).datepicker('setDate', 'today' + 1);
 });
+$(function() {
+	$('#listSubjects').on('click', 'li', function() {
+		$(this).find('input:checkbox').trigger('click');
+	});
+});
+$(function() {
+	$('#listSubjects').on('click', function(event) {
+		var checkedBox=$('input:checkbox:checked').length;
+		if(checkedBox == 0){
+			$("#checkNext").attr('disabled',true);
+		}
+		else{
+			
+			$("#checkNext").attr('disabled',false);
+		}
+		
+	});
+});
+
 $(function() {
 	var locId = $('#location').val();
 	var stdId = $('#std').val();
-	
+
 	$("#stdValue").val(stdId);
-//	var urlLoc = location.origin+"/locations/" + locId +"/instructors";
-	alert(urlLoc);
+	var urlLoc = location.origin + "/locations/" + locId + "/instructors";
 
 	$
-			.getJSON(urlLoc)
+			.getJSON(urlLoc, function() {
+				$("#spinner").show();
+			})
 			.done(
 					function(data) {
+						$("#spinner").hide();
 						console.log(data);
 						var countInstructor = data._embedded.instructors.length;
 
@@ -33,77 +54,93 @@ $(function() {
 });
 
 $(function() {
-	var url = location.origin+"/subjects";
+	var url = location.origin + "/subjects";
 	var suggName = [];
 	var details;
-	
-//	alert(location.origin);
-//	alert(location.host);
-//	alert(location.pathname);
+
+	// alert(location.origin);
+	// alert(location.host);
+	// alert(location.pathname);
 	$.getJSON(url).done(function(data) {
 		details = (data._embedded.subjects);
 
 	}).fail(function(e) {
-		alert("subjects ajax "+e);
+		alert("subjects ajax " + e);
 	}).always(function() {
-		$(details).each(function(index,value) {
+		$(details).each(function(index, value) {
 			suggName.push(details[index].name);
 		});
-//		$('#name').autocomplete({
-//			source: suggName
-//		});
+		// $('#name').autocomplete({
+		// source: suggName
+		// });
 		fillListSubjects(suggName);
 	});
-	
-});
-//<ul id="listSubjects">
-//<li>                      
-//<span id="subjectName">Physics</span>
-// <div id="subjectSelect">
-//      <input type="checkbox" name="subjectSelect" id="">
-// </div>
-//</li>
-//<ul>
 
-$(function(){
-	$('#listSubjects').on('click','li',function(){
-		$(this).find('input:checkbox').trigger('click');
-	});
 });
-function fillListSubjects(suggName){
-	$(suggName).each(function(index,value){
-		$('#listSubjects').append("<li><label for='sub' id='subjectName'>"+suggName[index] +"</label><div id='subjectSelect'><input type='checkbox' name='sub' id='sub' value='"+suggName[index]+"'></div></li>");
-	});
-	
+// <ul id="listSubjects">
+// <li>
+// <span id="subjectName">Physics</span>
+// <div id="subjectSelect">
+// <input type="checkbox" name="subjectSelect" id="">
+// </div>
+// </li>
+// <ul>
+
+
+function fillListSubjects(suggName) {
+	$(suggName)
+			.each(
+					function(index, value) {
+						$('#listSubjects')
+								.append(
+										"<li><label for='sub' id='subjectName'>"
+												+ suggName[index]
+												+ "</label><div id='subjectSelect'><input type='checkbox' name='sub' id='sub' value='"
+												+ suggName[index]
+												+ "'></div></li>");
+					});
+
 }
 
-//validation
+// validation
 $(function() {
-
-	$("input:text, textarea, input[type=tel]").on("blur", function() {
+	
+	$("input:text,input[type=number], textarea, input[type=tel]").on("blur", function() {
 
 		if ($(this).attr("name") != "landmark") {
 			if ($(this).val() == null || $(this).val() == "") {
-				
-					$(this).css("border", "1px solid red");
-			}
-			else{
+
+				$(this).css("border", "1px solid red");
+			} else {
 				$(this).css("border", "");
 			}
 		}
-	});	
+	});
 });
-$(function(){
-	$("#msform").submit(function(event){	
-		var pin= $("#pin").val().trim();
-		var address= $("#address").val().trim();
-		var phoneNo= $("#phoneNo").val().trim();
-		
-		if(pin.length==0 || address.length==0 || phoneNo.length==0){
+
+$(function() {
+
+	
+//	$("#checkNext").on("click",function(event){
+//		var checkedCheckbox=$("input:checkbox:checked").length;
+//		if(checkedCheckbox==0){
+//			alert(checkedCheckbox);
+//			event.preventDefault();
+//			return false;
+//		}
+//		
+//	});
+
+	$("#msform").submit(function(event) {
+		var pin = $("#pin").val().trim();
+		var address = $("#address").val().trim();
+		var phoneNo = $("#phoneNo").val().trim();
+
+		if (pin.length == 0 || address.length == 0 || phoneNo.length == 0) {
 			alert("Please fill in all the details.");
 			event.preventDefault();
 		}
-		
+
 	});
 });
 
