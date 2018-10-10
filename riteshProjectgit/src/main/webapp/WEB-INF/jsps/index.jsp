@@ -75,7 +75,8 @@
 							style="margin-top: 0; padding-top: 0; line-height: 17px;"> <span
 								style="font-size: 10px"> Hello,&nbsp; <c:out
 										value="${sessionScope.userName}"></c:out>
-							</span><br> <span>Profile<span></span><span class="caret"></span></a></li>
+							</span><br> <span>Profile<span></span><span class="caret"></span></a>
+						</li>
 						<li><a href="/logout">Logout</a></li>
 					</security:authorize>
 					<security:authorize access="isAnonymous()">
@@ -86,9 +87,10 @@
 							</span></a></li>
 
 					</security:authorize>
-
-
-
+					<li  class="instructorBtn"><a href="/tutor"
+						style="margin-top: 0; padding-top: 0; line-height: 17px;"> <span
+							style="font-size: 10px"> Tutor,&nbsp; </span><br> <span>Click
+								here<span></span><span class="caret"></span></a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -335,9 +337,7 @@
 				</ul>
 			</div>
 			<div>
-				<p>
-					&copy; 2018 RAPT. All rights reserved
-				</p>
+				<p>&copy; 2018 RAPT. All rights reserved</p>
 			</div>
 		</div>
 	</div>
@@ -356,15 +356,15 @@
 	<script type="text/javascript" src="index/js/js/contact_me.js"></script>
 	<script type="text/javascript" src="index/js/js/main.js"></script>
 	<script>
-	$(function(){
-		$("#bookScheduleForm").on('submit',function(event){
-			var loc=$("#selectLocationMenu").val();
-			var std=$("#selectClassMenu").val();
-			if(loc == "#" || std == "#"){
-				event.preventDefault();
-			}
+		$(function() {
+			$("#bookScheduleForm").on('submit', function(event) {
+				var loc = $("#selectLocationMenu").val();
+				var std = $("#selectClassMenu").val();
+				if (loc == "#" || std == "#") {
+					event.preventDefault();
+				}
+			});
 		});
-	});
 	</script>
 </body>
 </html>

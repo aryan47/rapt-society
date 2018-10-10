@@ -201,15 +201,13 @@
 				else{
 					passValid = true;
 				}
-				alert("!passValid: "+!passValid+" emailAlreadyExist: "+emailAlreadyExist+" !agree: "+!agree);
-				alert("pass: "+pass+" confirm pass: "+confirmPass);
+				
 				if (!passValid || emailAlreadyExist || !agree) {	
 					$("#btnSubmit i").removeClass("fa fa-spinner fa-spin");
 					event.preventDefault();					
 				}
 				else{
 					$("#btnSubmit i").addClass("fa fa-spinner fa-spin");
-					alert("added class spinner");
 				}
 				
 								

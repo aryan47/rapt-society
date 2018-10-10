@@ -133,7 +133,7 @@ h1 {
 	width:35%;
 	margin:auto;
 	margin-bottom:100px;
-	border-radius:5px;
+	border-radius:10px;
 	box-sizing: border-box;
 
 }
@@ -153,7 +153,7 @@ h1 {
   padding: 15px;
   color: #212121;
   font-size: 20px;
-  margin-right:25px;
+  margin-right:2px;
   float: left;
   text-align: center;
   cursor: pointer;
@@ -213,10 +213,10 @@ div#signin-agile input[type="text"],div#signin-agile input[type="password"],div#
     color: #212121;
     text-align: left;
     outline: none;
-    letter-spacing: 1px;
+    letter-spacing: 4px;
     font-size: 16px;
-    margin-top: 1em;
-    margin-bottom: 2em;
+    margin-top: .5em;
+    margin-bottom: 1.5em;
     font-weight: 600;
     font-family: 'Poiret One', cursive;
     background: none;
@@ -260,7 +260,7 @@ div#signin-agile input[type="checkbox"]:checked+label span:first-child:before {
 }
 /*--//checkbox--*/
 div#signin-agile .sign-in {
-	font-size: 20px;
+	font-size: 15px;
 	font-weight: 600;
 	text-transform: uppercase;
 	width: 100%;
@@ -297,7 +297,7 @@ div#signup-agile .register {
 	letter-spacing: 1px;
 	font-weight: 600;
 	font-family: 'Sansita', sans-serif;
-	font-size: 20px;
+	font-size: 15px;
 	margin-top: 5%;
 	text-transform: uppercase;
 	-webkit-transition: all 0.5s ease-in-out;
@@ -326,7 +326,7 @@ p.copyright a:hover {
 /*-- Responsive start here --*/
 @media (max-width:1600px) {
 	.form-w3ls {
-	width: 38%;	
+	width: 35%;	
 	}
 }
 

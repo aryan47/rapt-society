@@ -16,7 +16,7 @@ import com.project.jpa.riteshProject.services.CustomUserDetailsService;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class StudentSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	CustomUserDetailsService userDetailsService;

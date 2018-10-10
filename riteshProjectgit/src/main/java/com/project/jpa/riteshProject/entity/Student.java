@@ -56,5 +56,6 @@ public class Student {
 	private StudentQualification Studentqualification;
 	@DateTimeFormat(pattern = "dd-mm-yy")
 	private LocalDateTime scheduledDemo;
-
+	@Column(nullable=true)
+	private boolean isTutor=false;
 }
